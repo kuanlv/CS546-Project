@@ -1,0 +1,30 @@
+{
+  "name": "cs546-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuanlv/CS546-Project.git"
+  },
+  "author": "Kuan Lyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuanlv/CS546-Project/issues"
+  },
+  "homepage": "https://github.com/kuanlv/CS546-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "handlebars": "^4.5.1",
+    "mongodb": "^3.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
