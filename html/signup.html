@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sigu Up</title>
+</head>
+<body>
+    <h1>Sign up now!</h1>
+    <form action="/info" method="POST" class="signup form">
+        <div>
+            <label for="email">Email Address</label>
+            <input type="email" name="email" value="email" placeholder="your email address" required/>
+        </div>
+        <div>
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" value="username" placeholder="Create a username" required/>
+        </div>
+        <div>
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" value="password" placeholder="create password" required/>
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" value="confirmPassword" placeholder="confirm password" required/>
+        </div>
+        <div>
+            <button type="submit" value="Submit">Submit</button>
+        </div>
+    </form>
+<a href="/login">Login</a>
+<a href="/home">Home</a>
+</body>
+</html>

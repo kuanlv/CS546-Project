@@ -10,7 +10,8 @@ const redirectLogin = (req, res, next) => {
         return res.redirect('/login');
     }
     next();
-}
+};
+
 
 module.exports = {
     redirectUser,
