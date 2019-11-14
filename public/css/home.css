@@ -49,7 +49,7 @@ header{
 }
 
 .welcome-text{
-    position: absolute;
+    position: relative;
     width: 600px;
     height: 300px;
     margin: 20% 30%;

@@ -13,6 +13,7 @@ app.use(express.urlencoded({extended: true}));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 // initialize enviroment varaible
+const TWO_HOURS = 1000 * 60 * 60 * 2;
 const {
     PORT =3000,
     NODE_EVN = 'developent',
@@ -23,6 +24,7 @@ const {
 
 const IN_PROD = NODE_EVN == 'production';
 // session middleware
+
 app.use(session({
     name: SESS_NAME,
     resave: false,
