@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const users = require('../data/users');
+const data = require('../data');
 const path = require("path");
 
 router.get('/', async(req, res) => {
@@ -9,16 +9,19 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
     const { username, password } = req.body;
-    if (username && password){
-        const user = users.find(
-            user => username === user.username && user.password === password
-            );
-        if (user) {
-            req.session.userId = user.id;
-            return res.redirect('/user');
-        }
+    console.log(req.body);
+    if (!username || !password) {
+        return res.redirect('/login');
     }
-    return res.redirect('/login');
-})
+    try {
+        console.log("1d")
+        const user = await data.Users.findUserbyUsername(username, password);
+        console.log(user);
+        req.session.userId = user.id;
+        res.redirect('/user');
+    } catch(e) {
+        return res.redirect('/login');
+    }
+});
 
 module.exports = router;

@@ -13,12 +13,13 @@
     <img src="css/images/loveAvatar.png" class="avatar">
         <h1>LOGIN NOW!</h1>
         <form action="/login" method="POST">
-            <p>Username</p>
+            <label for="username">Username</label>
             <input type="text" name="username" value="username" placeholder="Enter Username">
-            <p>Password</p>
+            <label for="password">Password</label>
             <input type="password" name="password" value="password" placeholder="Enter Password">
-            <input type="submit" name="submit" value="Login">
-            <a href="#">SIGN UP HERE!</a>
+            <button type="submit">Submit</button> 
+            <a href="/signup">SIGN UP HERE!</a>
+            <a href="/home">home</a>
         </form>
 
     </div>
