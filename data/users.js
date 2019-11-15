@@ -13,7 +13,6 @@ let exportedMethods = {
             throw "Please enter username!";
         const userCollection = await Users();
         const user = await userCollection.findOne({"username": username});
-        console.log("3");
         if (!user) 
             throw "Couldn't find user with this username";
         if (user.password !== password)
@@ -21,6 +20,12 @@ let exportedMethods = {
         return user;
     },
 
+    async addUser(user) {
+        const userCollection = await Users();
+        const insertionInfo = await userCollection.insertOne(user);
+        if (!insertionInfo)
+            throw "Can't insert!";
+    }
 }
 
 module.exports = exportedMethods;
