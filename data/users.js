@@ -1,5 +1,6 @@
 const mongoCollections = require('../config/mongoCollections');
 const Users = mongoCollections.Users;
+const bcrypt = require('bcrypt');
 
 let exportedMethods = {
     async getAllusers() {
@@ -15,16 +16,22 @@ let exportedMethods = {
         const user = await userCollection.findOne({"username": username});
         if (!user) 
             throw "Couldn't find user with this username";
-        if (user.password !== password)
+        let flag = false;
+        flag = await bcrypt.compare(password, user.hashedpassword);
+        if (!flag)
             throw "Incorrect password";
         return user;
     },
 
     async addUser(user) {
+        console.log(1);
         const userCollection = await Users();
+        console.log(2);
+        console.log(user.profile.Motto);
         const insertionInfo = await userCollection.insertOne(user);
         if (!insertionInfo)
             throw "Can't insert!";
+        
     }
 }
 

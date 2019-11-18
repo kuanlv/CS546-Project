@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kuanlv/CS546-Project#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",

@@ -5,17 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sigu Up</title>
+    <link rel="stylesheet" href="css/signup.css" type="text/css"/>
 </head>
 <body>
     <h1>Sign up now!</h1>
     <form action="/signup" method="POST" class="signup form">
         <div>
+            <label for="username">USERNAME</label>
+            <input type="text" name="username"  placeholder="Create a username" required/>
+        </div>
+        <div>
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="your email address" required/>
         </div>
         <div>
-            <label for="username">USERNAME</label>
-            <input type="text" name="username"  placeholder="Create a username" required/>
+            <label for="hobby">Hobby</label>
+            <input type="text" name="hobby"  placeholder="hobbies" required/>
+        </div>
+        <div>
+            <label id="sexo" for="sexo">sex orientation</label>
+            <input type="radio" name="sexo" value="male" required/>Male
+            <input type="radio" name="sexo" value="female" required/>Female
+        </div>
+        <div>
+            <label id="gender" for="gender">Gender</label>
+            <input type="radio" name="gender" value="male"/>Male
+            <input type="radio" name="gender" value="female"/>Female 
+        </div>
+        <div>
+            <label for="username">Motto</label>
+            <input type="text" name="motto"  placeholder="write something you like" required/>
+        </div>
+        <div>
+            <label for="contactInfo">Phone Number</label>
+            <input type="tel" name="contactInfo" placeholder="phone number" required/>
+        </div>
+        <div>
+            <label for="age">age</label>
+            <input type="number" name="age"  placeholder="enter your age" required/>
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" name="location" placeholder="city you live" required/>
         </div>
         <div>
             <label for="password">PASSWORD</label>
