@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="css/signup.css" type="text/css"/>
 </head>
 <body>
+    <div id="first">
     <h1>Sign up now!</h1>
-    <form action="/signup" method="POST" class="signup form">
+    <form action="/signup" method="POST" class="signup form" id="form">
         <div>
-            <label for="username">USERNAME</label>
-            <input type="text" name="username"  placeholder="Create a username" required/>
+            <label for="username" id="username" class="">USERNAME</label>
+            <input type="text" name="username" placeholder="Create a username" required/>
         </div>
         <div>
-            <label for="email">Email Address</label>
+            <label for="email" id="email">Email Address</label>
             <input type="email" name="email" placeholder="your email address" required/>
         </div>
         <div>
-            <label for="hobby">Hobby</label>
+            <label for="hobby" id="hobby">Hobby</label>
             <input type="text" name="hobby"  placeholder="hobbies" required/>
         </div>
         <div>
@@ -33,34 +34,35 @@
             <input type="radio" name="gender" value="female"/>Female 
         </div>
         <div>
-            <label for="username">Motto</label>
+            <label for="motto" id="motto">Motto</label>
             <input type="text" name="motto"  placeholder="write something you like" required/>
         </div>
         <div>
-            <label for="contactInfo">Phone Number</label>
+            <label for="contactInfo" id="contactInfo">Phone Number</label>
             <input type="tel" name="contactInfo" placeholder="phone number" required/>
         </div>
         <div>
-            <label for="age">age</label>
+            <label for="age" id="age">age</label>
             <input type="number" name="age"  placeholder="enter your age" required/>
         </div>
         <div>
-            <label for="location">Location</label>
-            <input type="text" name="location" placeholder="city you live" required/>
+            <label for="location" id="location">Location</label>
+            <input type="text" name="location"  placeholder="city you live" required/>
         </div>
         <div>
-            <label for="password">PASSWORD</label>
-            <input type="password" name="password" placeholder="create password" required/>
+            <label for="password" id="password">PASSWORD</label>
+            <input type="password" name="password"  placeholder="create password" required/>
         </div>
         <div>
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" name="confirmPassword"  placeholder="confirm password" required/>
+            <label for="confirmPassword" id="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" placeholder="confirm password" required/>
         </div>
         <div>
-            <button type="submit" value="Submit">Submit</button>
+            <button type="submit" value="Submit" id="submit">Submit</button>
         </div>
     </form>
 <a href="/login">Login</a>
 <a href="/home">Home</a>
+</div>
 </body>
 </html>

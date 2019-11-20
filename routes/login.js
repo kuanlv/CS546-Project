@@ -5,7 +5,7 @@ const path = require("path");
 const middleware = require('../middleware/middleware');
 
 
-router.get('/', middleware.redirectUser, async(req, res) => {
+router.get('/', middleware.redirectDate, async(req, res) => {
     res.sendFile(path.resolve('html/login.html'));
 });
 
@@ -16,8 +16,10 @@ router.post('/', async(req, res) => {
     }
     try {
         const user = await data.Users.findUserbyUsername(username, password);
-        req.session.userId = user.id;
-        res.redirect('/user');
+        console.log(req.session);
+        req.session.userId = user._id;
+        console.log(req.session);
+        res.redirect('profile');
     } catch(e) {
         return res.redirect('/login');
     }

@@ -1,13 +1,15 @@
-const redirectUser = async (req, res, next) => {
+const redirectDate = async (req, res, next) => {
     if (req.session.userId) {
+        console.log(req.session);
         console.log('middle');
-        return res.redirect('/user');
+        return res.redirect('/date');
     }
     next();
 };
 
 const redirectLogin = async (req, res, next) => {
     if (!req.session.userId) {
+        console.log("gan ha");
         return res.redirect('/login');
     }
     next();
@@ -15,6 +17,6 @@ const redirectLogin = async (req, res, next) => {
 
 
 module.exports = {
-    redirectUser,
+    redirectDate,
     redirectLogin
 };

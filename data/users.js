@@ -1,6 +1,7 @@
 const mongoCollections = require('../config/mongoCollections');
 const Users = mongoCollections.Users;
 const bcrypt = require('bcrypt');
+ObjectId = require("mongodb").ObjectID;
 
 let exportedMethods = {
     async getAllusers() {
@@ -31,7 +32,16 @@ let exportedMethods = {
         const insertionInfo = await userCollection.insertOne(user);
         if (!insertionInfo)
             throw "Can't insert!";
-        
+    },
+
+    async findUserById(id) {
+        if (!id)
+            throw "No id provided";
+        const userCollection = await Users();
+        const user = await userCollection.findOne({_id: ObjectId(id)});
+        if (!user) 
+            throw "user with this id not found!";
+        return user;
     }
 }
 
