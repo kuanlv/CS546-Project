@@ -1,6 +1,6 @@
 const redirectDate = async (req, res, next) => {
+    console.log(req.session.userId);
     if (req.session.userId) {
-        console.log(req.session);
         console.log('middle');
         return res.redirect('/date');
     }

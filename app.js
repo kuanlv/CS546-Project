@@ -3,6 +3,7 @@ const configRoutes = require('./routes');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 
+
 const app = express();
 // static middleware
 app.use(express.static('public'));

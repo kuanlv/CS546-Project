@@ -32,6 +32,8 @@ let exportedMethods = {
         const insertionInfo = await userCollection.insertOne(user);
         if (!insertionInfo)
             throw "Can't insert!";
+        const newUser = await this.findUserById(insertionInfo.insertedId);
+        return newUser;
     },
 
     async findUserById(id) {
@@ -42,6 +44,15 @@ let exportedMethods = {
         if (!user) 
             throw "user with this id not found!";
         return user;
+    },
+
+    async addImagePath(userId, imagePath) {
+        if (!imagePath)
+            throw "No path provided!";
+        const userCollection = await Users();
+        const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: {profileImage: imagePath}});
+        if (!updatedInfo)
+            throw "can't update";
     }
 }
 

@@ -1,1 +1,23 @@
-<h1>profile</h1>
+<div class="container">
+    <h1>Last Step: upload your profile picture!</h1>
+    <form action="/profile" method="POST" enctype="multipart/form-data">
+        <div class="file-field">
+            <div class="btn grey">
+            <span>Picture</span>
+            <input type="file" name="myImage">
+            </div>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    {{#if file}}
+        <img src= {{ file }}>
+        <div>
+            <a href="/login">Get Started!</a>
+        </div>
+    {{/if}}
+</div>
+{{!-- <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}

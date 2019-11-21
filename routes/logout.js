@@ -9,6 +9,7 @@ router.post('/', async(req, res) => {
     req.session.destroy(err => {
         if (err)
             return console.log(err);
+        console.log(req.session);
         res.redirect('/home');
     });
 });

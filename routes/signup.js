@@ -37,8 +37,9 @@ router.post('/', async(req, res) => {
     //     return res.redirect('/signup');
     try {
         console.log("bb")
-        await data.Users.addUser(newUser);
-        res.redirect('/login');
+        const u = await data.Users.addUser(newUser);
+        req.session.userId = u._id;
+        res.redirect('/profile');
     }catch(e) {
         console.log(e);
         res.redirect('/signup');
