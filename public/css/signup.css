@@ -10,58 +10,10 @@ h1 {
   text-align: center;
 }
 
-#username{
-  color: chocolate;
-  text-align: center;
-}
-
-#email{
-  color: chocolate;
-  text-align: center;
-}
-
-#hobby{
-  color: chocolate;
-  text-align: center;
-}
-
-#sexo{
-  color: chocolate;
-  text-align: center;
-}
-
-#gender{
-  color: chocolate;
-  text-align: center;
-}
-
-#contactInfo{
-  color: chocolate;
-  text-align: center;
-}
-
-#motto{
-  color: chocolate;
-  text-align: center;
-}
-
-#age{
-  color: chocolate;
-  text-align: center;
-}
-
-#location{
-  color: chocolate;
-  text-align: center;
-}
-
-#password{
-  color: chocolate;
-  text-align: center;
-}
-
-#confirmPassword{
-  color: chocolate;
+.signup-input {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: darkmagenta;
   text-align: center;
 }
 

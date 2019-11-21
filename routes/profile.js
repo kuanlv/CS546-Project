@@ -33,11 +33,20 @@ function checkFileType(file, cb) {
 }
 
 router.get('/', middleware.redirectLogin, async(req, res) => {
-    console.log(req.session.userId);
+    console.log("get profile");
+    console.log(req.session.newid);
     try {
-        const user = await userData.Users.findUserById(req.session.userId);
+        const user = await userData.Users.findUserById(req.session.newid);
         console.log(user);
-        res.render('profile', {title: user.username});
+        res.render('profile', {
+            title: user.username,
+            username: user.username,
+            hobby: user.profile.hobby,
+            occupation: user.profile.occupation, 
+            sexOrientation: user.profile.sexOrientation,
+            gender: user.profile.gender,
+            motto: user.profile.Motto,
+        });
     } catch(e) {
         res.render('profile', {error: e});
     }

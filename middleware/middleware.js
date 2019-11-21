@@ -8,6 +8,8 @@ const redirectDate = async (req, res, next) => {
 };
 
 const redirectLogin = async (req, res, next) => {
+    if (req.session.newid) 
+        return next();
     if (!req.session.userId) {
         console.log("gan ha");
         return res.redirect('/login');

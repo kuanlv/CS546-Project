@@ -19,7 +19,8 @@ router.post('/', async(req, res) => {
         likes: [],
         profile: {
             name: req.body.username,
-            hobby: req.body.hobby, 
+            hobby: req.body.hobby,
+            occupation: req.body.occupation, 
             sexOrientation: req.body.sexo,
             gender: req.body.gender,
             Motto: req.body.motto,
@@ -36,9 +37,9 @@ router.post('/', async(req, res) => {
     // if (password !== confirmPassword)
     //     return res.redirect('/signup');
     try {
-        console.log("bb")
+        console.log("signup post")
         const u = await data.Users.addUser(newUser);
-        req.session.userId = u._id;
+        req.session.newid = u._id;
         res.redirect('/profile');
     }catch(e) {
         console.log(e);
