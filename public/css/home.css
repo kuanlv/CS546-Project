@@ -1,56 +1,93 @@
 
-body{
-    background: url(images/homeb2.jpg) no-repeat fixed;
-    background-size: 100% 100%;
-    opacity: 1;
-}
-
-.top-bar {
-    width: 100%;
-    background-color: aqua;
-}
-
-.nav-area {
-    background-color: brown;
-    display: inline-block;
-    float: right;
-    margin-top: 0;
-    border-radius: 15px;
-}
-
-.logo a{
-    color: #ff9;
-    text-decoration: underline;
-    text-transform: uppercase;
-    padding: 5px 20px;
-    float: right;
-    font-family: 'sans-serif';
-    font-size: 32px;
+body header{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
-}
-
-/* .nav-area  a:hover {
-    background: #fff;
-    color: brown;
-} */
-.logo{
-    width: 100%;
-    margin: 0;
-}
-
-.logo img{
-    width: 5%;
-    margin-top: 0;
-    margin-right: 0;
-}
-
-h1{
-    margin-top: 42px;
     padding: 0;
-    text-align: center;
-    color: rgb(233, 79, 207);
-    text-transform: uppercase;
-    font-size: 60px;  
+    line-height: 1.5;
+    font-size: 15px;
 }
+
+
+.body-container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header{
+    background: #35424a;
+    color: rgb(235, 43, 241);
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: orange 3px solid;
+}
+
+header a{
+    color: rgb(59, 221, 194);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 23px;
+}
+
+ul{
+    margin: -30px;
+    margin-right: -20px;
+    padding: 0;
+}
+
+header li{
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding h1{
+    margin: 0;
+}
+
+header nav{
+    float: right;
+    margin-top: -20px;
+}
+
+header .highlight, header .current a{
+    color: red;
+    font-weight: bold;
+}
+
+header a:hover{
+    color: purple;
+    font-weight: bold;
+}
+
+
+#showcase{
+    margin-top: -17px;
+    padding: 0;
+    min-height: 900px;
+    background: url(images/homeb2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    color: pink;
+}
+
+footer{
+    background-color: #35424a;
+    color: white;
+    text-align: center;
+    min-height: 40px;
+}
+
+footer p{
+    margin: 0;
+    font-size: 23px;
+}
+
 
 

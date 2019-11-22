@@ -46,13 +46,19 @@ let exportedMethods = {
         return user;
     },
 
-    async addImagePath(userId, imagePath) {
-        if (!imagePath)
+    async addImageName(userId, imageName) {
+        if (!imageName)
             throw "No path provided!";
         const userCollection = await Users();
-        const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: {profileImage: imagePath}});
+        const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: {profileImage: imageName}});
         if (!updatedInfo)
             throw "can't update";
+    },
+
+    async findAllUsers() {
+        const userCollection = await Users();
+        const userList = await userCollection.find({}).toArray();
+        return userList;
     }
 }
 

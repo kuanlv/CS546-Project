@@ -57,12 +57,13 @@ router.post('/', async(req, res) => {
         if(err) 
             return res.render('profile', {msg: err});
         console.log(req.file);
-        const imagePath = req.file.path;
+        const imageName = req.file.filename;
         try{ 
-            await userData.Users.addImagePath(req.session.userId, imagePath);
+            console.log(`uploads/${imageName}`);
+            await userData.Users.addImageName(req.session.userId, imageName);
             res.render('profile', {
                 msg: "file uploaded",
-                file: "uploads/" + req.file.filename
+                filePath: "uploads/" + req.file.filename
             });
         }catch(e) {
             res.render('profile', {error: e});
