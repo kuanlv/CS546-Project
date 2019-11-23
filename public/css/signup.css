@@ -1,41 +1,106 @@
-* {box-sizing: border-box}
 
-h1 {
-  text-align: center;
+
+.body-container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 9vh;
+  background-color: pink;
+}
+
+.branding h1{
+  float: left;
   color: brown;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#form {
+header nav{
+  margin: 0;
+  float: right;
+}
+
+header a{
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: coral;
+  background-color: white;
+  font-weight: bold;
+}
+
+header a:hover{
+  color: aquamarine;
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: crimson;
+  
+}
+
+header li{
+  list-style-type: none;
+  display: inline;
+  margin: 1rem;
+}
+
+.showcase{
+  width: 100%;
+  margin-top: -17px;
+  padding: 0;
+  min-height: 90vh;
+  background: url(images/love3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   text-align: center;
+
 }
 
-.signup-input {
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: darkmagenta;
-  text-align: center;
+.signup-form{
+  margin: auto;
+  padding-top: 33px;
+  width: 43%;
+  background-color: burlywood;
+  opacity: 0.91;
+  height: 79vh;
+  color: rgb(7, 83, 54);
+  text-transform: uppercase;
 }
 
-body {
-  background: url(images/love3.jpg) no-repeat fixed;
-  background-size: 100% 100%;
-  opacity: 1;
-}
-
-input[type=text], input[type=password] {
-  width: 20%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+.signup-input{
+  margin: 1vh;
+  padding: 0;
+  line-height: 3.4rem;
+  font-size: 1.9rem;
+  overflow: hidden;
   outline: none;
+  border: none;
 }
+
+.signup-form input[type="text"], input[type="password"] 
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    color: green;
+    font-size: 16px;
+}
+
+
+footer{
+  background-color: #35424a;
+  color: white;
+  text-align: center;
+  min-height: 6vh;
+}
+
+footer p{
+  padding-top: 12px;
+  margin: 0;
+  font-size: 23px;
+}
+
 
 
 /* Set a style for all buttons */
@@ -43,22 +108,23 @@ button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 0;
   border: none;
   cursor: pointer;
   width: 20%;
-  opacity: 0.9;
+  opacity: 1;
+  font-size: 1.3rem;
+  margin-top: 1rem;
 }
 
-button:hover {
+button:hover{
+  border-radius: 12px;
   opacity:1;
 }
 
 
 /* Add padding to container elements */
-.container {
-  padding: 16px;
-}
+
 
 
   

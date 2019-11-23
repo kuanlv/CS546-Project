@@ -1,3 +1,11 @@
+html{
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
 
 body header{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -18,8 +26,12 @@ header{
     background: #35424a;
     color: rgb(235, 43, 241);
     padding-top: 30px;
-    min-height: 70px;
+    height: 8vh;
     border-bottom: orange 3px solid;
+}
+
+header h1{
+    margin: 0;
 }
 
 header a{
@@ -30,7 +42,8 @@ header a{
 }
 
 ul{
-    margin: -30px;
+    margin: -20px;
+    height: 6vh;
     margin-right: -20px;
     padding: 0;
 }
@@ -46,7 +59,7 @@ header #branding {
 }
 
 header #branding h1{
-    margin: 0;
+    margin-top: -45px;
 }
 
 header nav{
@@ -66,9 +79,10 @@ header a:hover{
 
 
 #showcase{
+    width: 100%;
     margin-top: -17px;
     padding: 0;
-    min-height: 900px;
+    min-height: 90vh;
     background: url(images/homeb2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,10 +95,11 @@ footer{
     background-color: #35424a;
     color: white;
     text-align: center;
-    min-height: 40px;
+    min-height: 6vh;
 }
 
 footer p{
+    padding-top: 12px;
     margin: 0;
     font-size: 23px;
 }

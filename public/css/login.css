@@ -8,8 +8,8 @@ body {
 }
 
 .loginbox {
-    width: 420px;
-    height: 520px;
+    width: 29%;
+    height: 56vh;
     background: rgba(34, 42, 2, 0.79);
     color: rgb(231, 247, 12);
     top: 50%;
@@ -88,8 +88,22 @@ h1 {
     color: coral;
     margin-bottom: 12px;
 }
+
 .loginbox a:hover{
     color: #ffc107;
+}
+
+footer{
+    background-color: #35424a;
+    color: white;
+    text-align: center;
+    min-height: 6vh;
+}
+
+footer p{
+    padding-top: 12px;
+    margin: 0;
+    font-size: 23px;
 }
 
 
