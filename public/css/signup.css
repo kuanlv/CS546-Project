@@ -1,5 +1,3 @@
-
-
 .body-container{
   margin: 0;
   padding: 0;
@@ -9,6 +7,8 @@
 }
 
 .branding h1{
+  margin: 0;
+  padding: 0;
   float: left;
   color: brown;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -24,8 +24,8 @@ header a{
   font-size: 1.4rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-transform: uppercase;
-  color: coral;
-  background-color: white;
+  color: rgb(70, 177, 240);
+  background-color: pink;
   font-weight: bold;
 }
 
@@ -37,11 +37,19 @@ header a:hover{
   
 }
 
+header ul {
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+
 header li{
   list-style-type: none;
   display: inline;
   margin: 1rem;
 }
+
+
 
 .showcase{
   width: 100%;
@@ -53,18 +61,49 @@ header li{
   background-repeat: no-repeat;
   background-position: center center;
   text-align: center;
+}
 
+.profile-form {
+  height: 53vh;
+  margin: auto;
+  padding: 0;
+  width: 30%;
+  opacity: 0.91;
+  background-color: rgb(104, 64, 13);
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  float: left;
+}
+
+.profile-form .private-info .signup-form{
+  display: inline;
+}
+
+form div {
+  height: 10vh;
+}
+
+.private-info {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  height: 53vh;
+  opacity: 0.91;
+  background-color: chocolate;
+  float: left;
 }
 
 .signup-form{
-  margin: auto;
-  padding-top: 33px;
-  width: 43%;
+  margin: 0;
+  padding: 0;
+  width: 30%;
   background-color: burlywood;
   opacity: 0.91;
-  height: 79vh;
   color: rgb(7, 83, 54);
+  height: 53vh;
   text-transform: uppercase;
+  float: left;
 }
 
 .signup-input{

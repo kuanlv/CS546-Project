@@ -1,28 +1,6 @@
-<div class="container">
-    <h1>Last Step: upload your profile picture!</h1>
-    <form action="/profile" method="POST" enctype="multipart/form-data">
-        <div class="file-field">
-            <div class="btn grey">
-            <span>Picture</span>
-            <input type="file" name="myImage">
-            </div>
-        </div>
-        <button type="submit" class="btn">Submit</button>
+<div class="user-profile">
+    <form class="change-info">
+        <label for="username">Username</label>
+        <input type="text" name="username" value={{user.username}}>
     </form>
-    <div>
-        <ul>
-            <li>Username: {{username}}</li>
-            <li>Hobby: {{hobby}}</li>
-            <li>Occupation: {{occupation}}</li>
-            <li>Sex Orientation: {{sexOrientation}}</li>
-            <li>Gender: {{gender}}</li>
-            <li>Motto: {{motto}}</li>
-        </ul>
-    </div>
-    {{#if filePath}}
-        <img src= {{ filePath }}>
-        <div>
-            <a href="/login">Get Started!</a>
-        </div>
-    {{/if}}
 </div>

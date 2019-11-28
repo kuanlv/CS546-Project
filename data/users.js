@@ -39,6 +39,7 @@ let exportedMethods = {
     async findUserById(id) {
         if (!id)
             throw "No id provided";
+        console.log(`find user id: ${id}`);
         const userCollection = await Users();
         const user = await userCollection.findOne({_id: ObjectId(id)});
         if (!user) 
@@ -50,7 +51,7 @@ let exportedMethods = {
         if (!imageName)
             throw "No path provided!";
         const userCollection = await Users();
-        const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: {profileImage: imageName}});
+        const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: { "profile.profileImage": imageName }});
         if (!updatedInfo)
             throw "can't update";
     },
@@ -59,6 +60,34 @@ let exportedMethods = {
         const userCollection = await Users();
         const userList = await userCollection.find({}).toArray();
         return userList;
+    },
+
+    async getAllProfile() {
+        const userList = await this.findAllUsers();
+        let res = [];
+        for (let i = 0; i < userList.length; i++) 
+            res.push(userList[i].profile);
+        return res;
+    },
+
+    async isValidUsername(username) {
+        if (typeof username !== "stirng")
+            throw "username must be a string";
+        if (username.length < 3) 
+            throw "username length must be greater than 2";
+        const userlist = await this.findAllUsers();
+        for (let i = 0; i < userlist.length; i++) 
+            if (username === userlist[i].username)
+                return false;
+        return true;
+    },
+
+    async addLikes(MyId, IdOfMyLike) {
+        if (!MyId || !IdOfMyLike)
+            throw "parameter missing!";
+        const userCollection = await Users();
+        const user = await this.findUserById(MyId);
+        
     }
 }
 

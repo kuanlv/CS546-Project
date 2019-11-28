@@ -25,14 +25,11 @@
     </header>
     
     <section class="showcase">
-        <form action="/signup" method="POST" class="signup-form" id="form">
+        <form action="/signup" method="POST" class="profile-form" id="form">
             <div>
-                <label for="username" id="username" class="signup-input">USERNAME</label>
-                <input type="text" name="username" placeholder="Create a username" required/>
-            </div>
-            <div>
-                <label for="email" id="email" class="signup-input">Email Address</label>
-                <input type="email" name="email" placeholder="your email address" required/>
+                <label id="gender" for="gender" class="signup-input">Gender</label>
+                <input type="radio" name="gender" value="male"/>Male
+                <input type="radio" name="gender" value="female"/>Female 
             </div>
             <div>
                 <label for="hobby" id="hobby" class="signup-input">Hobby</label>
@@ -46,16 +43,15 @@
                 <label id="sexo" for="sexo" class="signup-input">sex orientation</label>
                 <input type="radio" name="sexo" value="male" required/>Male
                 <input type="radio" name="sexo" value="female" required/>Female
-            </div>
-            <div>
-                <label id="gender" for="gender" class="signup-input">Gender</label>
-                <input type="radio" name="gender" value="male"/>Male
-                <input type="radio" name="gender" value="female"/>Female 
-            </div>
+            </div> 
             <div>
                 <label for="motto" id="motto" class="signup-input">Motto</label>
                 <input type="text" name="motto"  placeholder="write something you like" required/>
             </div>
+        </form>
+
+        <form action="/signup" method="POST" class="private-info">
+            <h3>Private information</h3>
             <div>
                 <label for="contactInfo" id="contactInfo" class="signup-input">Phone Number</label>
                 <input type="tel" name="contactInfo" placeholder="phone number" required/>
@@ -67,6 +63,17 @@
             <div>
                 <label for="location" id="location" class="signup-input">Location</label>
                 <input type="text" name="location"  placeholder="city you live" required/>
+            </div>
+        </form>
+
+        <form action="/signup" method="POST" class="signup-form">
+            <div>
+                <label for="username" id="username" class="signup-input">USERNAME</label>
+                <input type="text" name="username" placeholder="Create a username" required/>
+            </div>
+            <div>
+                <label for="email" id="email" class="signup-input">Email Address</label>
+                <input type="email" name="email" placeholder="your email address" required/>
             </div>
             <div>
                 <label for="password" id="password" class="signup-input">PASSWORD</label>
@@ -80,10 +87,11 @@
                 <button type="submit" value="Submit" id="submit">Submit</button>
             </div>
         </form>
+
     </section>
 
     <footer>
-        <p>Kuan's Web Design, copyright &copy; 2019</p>
+        <p>Copyright &copy; Kuan's Web Project 2019</p>
     </footer>
 
 </body>

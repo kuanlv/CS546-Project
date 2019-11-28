@@ -23,7 +23,7 @@ router.post('/', async(req, res) => {
             occupation: req.body.occupation, 
             sexOrientation: req.body.sexo,
             gender: req.body.gender,
-            Motto: req.body.motto,
+            Motto: req.body.motto
         }, 
         privateInfo: {
             contactInfo: req.body.contactInfo, 
@@ -40,7 +40,7 @@ router.post('/', async(req, res) => {
         console.log("signup post")
         const u = await data.Users.addUser(newUser);
         req.session.newid = u._id;
-        res.redirect('/profile');
+        res.redirect('/intermediate');
     }catch(e) {
         console.log(e);
         res.redirect('/signup');

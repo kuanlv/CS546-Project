@@ -5,7 +5,8 @@ const userData = require('../data');
 
 router.get('/', middleware.redirectLogin, async(req, res) => {
     console.log("get date");
-    const users = await userData.Users.getAllusers();
-    res.render('date', {users});
+    const profiles = await userData.Users.getAllProfile();
+    res.render('date', {profiles});
 });
+
 module.exports = router;

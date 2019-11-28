@@ -1,74 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const middleware = require('../middleware/middleware');
-const multer = require('multer');
-const path = require('path');
 const userData = require('../data');
 
-// set up multer and upload function //
-const storage = multer.diskStorage({
-    destination: './public/uploads',
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
-
-const upload = multer({
-    storage: storage,
-    fileFilter: function(req, file, cb) {
-        checkFileType(file, cb);
-    }
-}).single('myImage');
-
-function checkFileType(file, cb) {
-    const filetypes = /jpeg|jpg|png|gif/;
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
-
-    if (mimetype && extname) {
-        return cb(null, true);
-    } else {
-        cb('error: image only!');
-    }
-}
-
-router.get('/', middleware.redirectLogin, async(req, res) => {
-    console.log("get profile");
-    console.log(req.session.newid);
+router.get('/:id', async(req, res) => {
     try {
-        const user = await userData.Users.findUserById(req.session.newid);
-        console.log(user);
-        res.render('profile', {
-            title: user.username,
-            username: user.username,
-            hobby: user.profile.hobby,
-            occupation: user.profile.occupation, 
-            sexOrientation: user.profile.sexOrientation,
-            gender: user.profile.gender,
-            motto: user.profile.Motto,
-        });
+        console.log('get id')
+        const user = await userData.Users.findUserById(req.params.id);
+        res.render('profile', {user: user});
     } catch(e) {
-        res.render('profile', {error: e});
+        res.status(404).send({error: "haha"});
     }
-});
+})
 
 router.post('/', async(req, res) => {
-    upload(req, res, async(err) => {
-        if(err) 
-            return res.render('profile', {msg: err});
-        console.log(req.file);
-        const imageName = req.file.filename;
-        try{ 
-            console.log(`uploads/${imageName}`);
-            await userData.Users.addImageName(req.session.userId, imageName);
-            res.render('profile', {
-                msg: "file uploaded",
-                filePath: "uploads/" + req.file.filename
-            });
-        }catch(e) {
-            res.render('profile', {error: e});
-        }  
-    })
+    const name = req.body.name;
+    const user = await userData.Users.findUserbyUsername(name);
+    const likedId = user._id;
+    
+    console.log(req.session.userId);
 })
 
 module.exports = router;

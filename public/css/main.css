@@ -1,5 +1,22 @@
+* {
+
+    padding: 0;
+}
+
 img {
     width: 12%;
-    height: 15%;
+    height: 32vh;
+}
+
+section{
+    background-color: coral;
+}
+
+.user-profile{
+    margin: auto;
+}
+
+.user-profile ul{
+    list-style: none;
 }
 
