@@ -1,5 +1,4 @@
 * {
-
     padding: 0;
 }
 
@@ -16,7 +15,19 @@ section{
     margin: auto;
 }
 
-.user-profile ul{
+ul{
     list-style: none;
+}
+
+button {
+    background-color: crimson;
+    width: 3%;
+    height: 1%;
+}
+
+button:hover{
+    background-color: aquamarine;
+    border-radius: 15px;
+    cursor: pointer;
 }
 

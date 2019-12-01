@@ -37,9 +37,7 @@ router.get('/', middleware.redirectLogin, async(req, res) => {
     console.log(req.session.newid);
     try {
         const user = await userData.Users.findUserById(req.session.newid);
-        console.log(user._id);
         const id = ObjectId(user._id);
-        console.log(id);
         res.render('intermediate', {
             id: id,
             title: user.username,
@@ -61,12 +59,21 @@ router.post('/', async(req, res) => {
             return res.render('intermediate', {msg: err});
         const imageName = req.file.filename;
         try{ 
-            console.log(`uploads/${imageName}`);
+            const user = await userData.Users.findUserById(req.session.newid);
+            const id = ObjectId(user._id);
             console.log(req.session);
             await userData.Users.addImageName(req.session.newid, imageName);
             res.render('intermediate', {
                 msg: "file uploaded",
-                filePath: "uploads/" + req.file.filename
+                filePath: "uploads/" + req.file.filename,
+                id: id,
+                title: user.username,
+                username: user.username,
+                hobby: user.profile.hobby,
+                occupation: user.profile.occupation, 
+                sexOrientation: user.profile.sexOrientation,
+                gender: user.profile.gender,
+                motto: user.profile.Motto
             });
         }catch(e) {
             res.render('intermediate', {error: e});

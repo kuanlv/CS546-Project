@@ -12,6 +12,7 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
     const hash = await bcrypt.hash(req.body.password, saltRounds);
+    console.log(req.body);
     const newUser = {
         username: req.body.username,
         email: req.body.email, 

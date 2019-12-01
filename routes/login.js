@@ -14,7 +14,8 @@ router.post('/', async(req, res) => {
         return res.redirect('/login');
     }
     try {
-        const user = await data.Users.findUserbyUsername(username, password);
+        const user = await data.Users.findUserbyUsername(username);
+        await data.Users.isPasswordCorrect(username, password);
         req.session.userId = user._id;
         res.redirect('date');
     } catch(e) {

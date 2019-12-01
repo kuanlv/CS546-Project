@@ -10,17 +10,11 @@ let exportedMethods = {
         return userlist;
     },
 
-    async findUserbyUsername(username, password) {
-        if (!username) 
-            throw "Please enter username!";
+    async findUserbyUsername(username) {
         const userCollection = await Users();
         const user = await userCollection.findOne({"username": username});
-        if (!user) 
-            throw "Couldn't find user with this username";
-        let flag = false;
-        flag = await bcrypt.compare(password, user.hashedpassword);
-        if (!flag)
-            throw "Incorrect password";
+        if (user === 'undefined')
+            throw "user not found somehow";
         return user;
     },
 
@@ -62,12 +56,28 @@ let exportedMethods = {
         return userList;
     },
 
-    async getAllProfile() {
+    async getAllProfile(userId) {
+        const user = await this.findUserById(userId);
         const userList = await this.findAllUsers();
-        let res = [];
-        for (let i = 0; i < userList.length; i++) 
-            res.push(userList[i].profile);
-        return res;
+        const sexo = user.profile.sexOrientation;
+        let result = [];
+        if (sexo === "female") {
+            for (let i = 0; i < userList.length; i++) {
+                if (userList[i] === user) continue;
+                if (userList[i].profile.gender === "female")
+                    result.push(userList[i].profile);
+            }
+            return result;
+        }
+
+        if (sexo === "male") {
+            for (let i = 0; i < userList.length; i++) {
+                if (userList[i] === user) continue;
+                if (userList[i].profile.gender === "male")
+                    result.push(userList[i].profile);
+            }
+            return result;
+        }
     },
 
     async isValidUsername(username) {
@@ -82,12 +92,24 @@ let exportedMethods = {
         return true;
     },
 
+    async isPasswordCorrect(username, password) {
+        const user = await this.findUserbyUsername(username);
+        if (user === "undefined")
+            throw "username is not right!";
+        const flag = await bcrypt.compare(password, user.hashedpassword);
+        if (flag === false)
+            throw "password not right";
+    },
+
     async addLikes(MyId, IdOfMyLike) {
         if (!MyId || !IdOfMyLike)
             throw "parameter missing!";
         const userCollection = await Users();
-        const user = await this.findUserById(MyId);
-        
+        const updatedInfo = await userCollection.updateOne(
+            { _id: ObjectId(MyId) }, { $push: { likes: IdOfMyLike } });
+        if (updatedInfo === 'undefined')
+            throw "can't update likes";
+        console.log('success add like');
     }
 }
 

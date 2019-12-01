@@ -1,129 +1,97 @@
-.body-container{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 9vh;
-  background-color: pink;
+* {
+  box-sizing: border-box;
 }
 
-.branding h1{
+body {
   margin: 0;
   padding: 0;
-  float: left;
+  background: url('/css/images/love3.jpg') no-repeat;
+  background-size: cover;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2{
   color: brown;
+  text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-header nav{
-  margin: 0;
-  float: right;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #35424a;
+  color: white;
 }
 
-header a{
-  text-decoration: none;
-  font-size: 1.4rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-transform: uppercase;
-  color: rgb(70, 177, 240);
-  background-color: pink;
-  font-weight: bold;
+.brand-title {
+  font-size: 1.5rem;
+  margin: .5rem;
 }
 
-header a:hover{
-  color: aquamarine;
-  font-weight: bold;
-  text-decoration: underline;
-  background-color: crimson;
-  
-}
-
-header ul {
-  margin: 0;
+.navbar-links ul {
+  margin: 0 ;
   padding: 0;
-  margin-top: 1rem;
+  display: flex;
 }
 
-header li{
-  list-style-type: none;
-  display: inline;
-  margin: 1rem;
+.navbar-links li {
+  list-style: none;
 }
 
+.navbar-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  display: block;
+}
 
+.navbar-links li:hover {
+  background-color: #555;
+}
 
 .showcase{
-  width: 100%;
-  margin-top: -17px;
-  padding: 0;
-  min-height: 90vh;
-  background: url(images/love3.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  text-align: center;
-}
-
-.profile-form {
-  height: 53vh;
+  max-width: 42%;
+  border-radius: 20px;
+  margin-top: 100px;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  padding: 40px;
   margin: auto;
-  padding: 0;
-  width: 30%;
-  opacity: 0.91;
-  background-color: rgb(104, 64, 13);
-  display: flex;
-  flex-flow: wrap;
-  align-items: center;
-  float: left;
-}
-
-.profile-form .private-info .signup-form{
-  display: inline;
-}
-
-form div {
-  height: 10vh;
-}
-
-.private-info {
-  margin: 0;
-  padding: 0;
-  width: 30%;
-  height: 53vh;
-  opacity: 0.91;
-  background-color: chocolate;
-  float: left;
-}
-
-.signup-form{
-  margin: 0;
-  padding: 0;
-  width: 30%;
-  background-color: burlywood;
-  opacity: 0.91;
-  color: rgb(7, 83, 54);
-  height: 53vh;
+  color: aquamarine;
   text-transform: uppercase;
-  float: left;
 }
 
-.signup-input{
-  margin: 1vh;
-  padding: 0;
-  line-height: 3.4rem;
-  font-size: 1.9rem;
-  overflow: hidden;
+input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5px;
+  background:rgba(0, 0, 0, 0.1);
   outline: none;
   border: none;
+  border-bottom: 1px dotted #fff;
+  color: #fff;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
 }
 
-.signup-form input[type="text"], input[type="password"] 
-{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    color: green;
-    font-size: 16px;
+input[type=submit]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  margin-top: 30px;
+  outline: none;
+  border: none;
+  background: #60adde;
+  opacity: 0.7;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+input[type=submit]:hover{
+  background: blanchedalmond;
+  opacity: 0.7;
 }
 
 

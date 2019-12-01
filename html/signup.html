@@ -9,23 +9,37 @@
 </head>
 <body>
     <header>
-        <div class="body-container">
-            <div class="branding">
-                <h1>Sign up here!</h1>
-            </div>
-            <nav>
+        <nav class="navbar">
+            <div class="brand-title">Kuan's Dating App</div>
+            <div class="navbar-links">
                 <ul>
                     <li class="current"><a href="/home">Home</a></li>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">sign up</a></li>
                     <li><a href="https://www.linkedin.com/in/kuan-lyu/" target="_blank">contact</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
     
-    <section class="showcase">
+    <div class="showcase">
+        <h2>sign up here</h2>
         <form action="/signup" method="POST" class="profile-form" id="form">
+            <div>
+                <label for="username" id="username" class="signup-input">USERNAME</label>
+                <input type="text" name="username" placeholder="Create a username" required/>
+            </div>
+            <div>
+                <label for="email" id="email" class="signup-input">Email Address</label>
+                <input type="email" name="email" placeholder="your email address" required/>
+            </div>
+            <div>
+                <label for="password" id="password" class="signup-input">PASSWORD</label>
+                <input type="password" name="password"  placeholder="create password" required/>
+            </div>
+            <div>
+                <label for="confirmPassword" id="confirmPassword" class="signup-input">Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="confirm password" required/>
+            </div>
             <div>
                 <label id="gender" for="gender" class="signup-input">Gender</label>
                 <input type="radio" name="gender" value="male"/>Male
@@ -48,10 +62,7 @@
                 <label for="motto" id="motto" class="signup-input">Motto</label>
                 <input type="text" name="motto"  placeholder="write something you like" required/>
             </div>
-        </form>
-
-        <form action="/signup" method="POST" class="private-info">
-            <h3>Private information</h3>
+                <h3>Private information</h3>
             <div>
                 <label for="contactInfo" id="contactInfo" class="signup-input">Phone Number</label>
                 <input type="tel" name="contactInfo" placeholder="phone number" required/>
@@ -64,31 +75,12 @@
                 <label for="location" id="location" class="signup-input">Location</label>
                 <input type="text" name="location"  placeholder="city you live" required/>
             </div>
-        </form>
-
-        <form action="/signup" method="POST" class="signup-form">
             <div>
-                <label for="username" id="username" class="signup-input">USERNAME</label>
-                <input type="text" name="username" placeholder="Create a username" required/>
-            </div>
-            <div>
-                <label for="email" id="email" class="signup-input">Email Address</label>
-                <input type="email" name="email" placeholder="your email address" required/>
-            </div>
-            <div>
-                <label for="password" id="password" class="signup-input">PASSWORD</label>
-                <input type="password" name="password"  placeholder="create password" required/>
-            </div>
-            <div>
-                <label for="confirmPassword" id="confirmPassword" class="signup-input">Confirm Password</label>
-                <input type="password" name="confirmPassword" placeholder="confirm password" required/>
-            </div>
-            <div>
-                <button type="submit" value="Submit" id="submit">Submit</button>
+                <input type="submit" value="Submit">
             </div>
         </form>
 
-    </section>
+    </div>
 
     <footer>
         <p>Copyright &copy; Kuan's Web Project 2019</p>
