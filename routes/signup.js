@@ -3,9 +3,10 @@ const router = express.Router();
 const path = require("path");
 const data = require('../data');
 const bcrypt = require('bcrypt');
+const middleware = require('../middleware/middleware');
 const saltRounds = 10;
 
-router.get('/', async(req, res) => {
+router.get('/', middleware.redirectDate, async(req, res) => {
     res.sendFile(path.resolve('./html/signup.html'));
 });
 

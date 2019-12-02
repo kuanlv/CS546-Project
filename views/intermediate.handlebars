@@ -1,3 +1,4 @@
+{{>top}}
 <div class="container">
     <h1>Last Step: upload your profile picture!</h1>
     <form action="/intermediate" method="POST" enctype="multipart/form-data">
@@ -19,6 +20,7 @@
             <li>Motto: {{motto}}</li>
         </ul>
     </div>
+    
     {{#if filePath}}
         <img src= {{ filePath }}>
         <div>
@@ -29,3 +31,4 @@
         </div>
     {{/if}}
 </div>
+{{>footer}}

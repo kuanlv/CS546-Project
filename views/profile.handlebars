@@ -1,16 +1,28 @@
+<nav class="nav-bar">
+    <div class="brand-title">Kuan's Dating App</div>
+    <div class="nav-bar-links">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/profile/{{ id }}">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="showcase">
     <div class="img">
-        <img class="profile-img" src="/uploads/{{user.profile.profileImage}}" alt="profile">
+        <img class="profile-img" src="/uploads/{{ imageName }}" alt="profile">
     </div>
-    <form action="/profile/{{ user._id }}" method="POST" class="profile-form" id="form">
-        <div>
-            <label for="username" id="username" class="signup-input">USERNAME</label>
-            <input type="text" name="username" placeholder="Create a username" value="{{user.username}}"/>
+    <form action="/profile/{{ user._id }}" method="POST" enctype="multipart/form-data">
+        <div class="file-field">
+            <div class="btn grey">
+            <span>Change Profile</span>
+            <input type="file" name="myImage">
+            </div>
         </div>
-        <div>
-            <label for="email" id="email" class="signup-input">Email Address</label>
-            <input type="email" name="email" placeholder="your email address" value="{{user.email}}"/>
-        </div>
+        <button type="submit" class="profile-btn" id="{{ user._id }}">Submit</button>
+    </form>
+    <form action="/change-profile/{{ user._id }}" method="POST" class="profile-form" id="form">
         <div>
             <label for="hobby" id="hobby" class="signup-input">Hobby</label>
             <input type="text" name="hobby"  placeholder="hobbies" value="{{user.profile.hobby}}"/>
@@ -37,8 +49,26 @@
             <input type="text" name="location"  placeholder="city you live" value="{{user.privateInfo.location}}"/>
         </div>
         <div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Make a change">
         </div>
     </form>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.profile-btn').click(function() {
+            const id = $(this).attr("id");
+            data = {
+                "flag": 1
+            }
+            $.ajax(`http://localhost:3000/profile/${id}`, {
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function() { console.log('success');},
+                error  : function() { console.log('error');}
+            });
+        })
+    });
+</script>
+
 {{>footer}}

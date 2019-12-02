@@ -19,10 +19,7 @@ let exportedMethods = {
     },
 
     async addUser(user) {
-        console.log(1);
         const userCollection = await Users();
-        console.log(2);
-        console.log(user.profile.Motto);
         const insertionInfo = await userCollection.insertOne(user);
         if (!insertionInfo)
             throw "Can't insert!";
@@ -63,7 +60,8 @@ let exportedMethods = {
         let result = [];
         if (sexo === "female") {
             for (let i = 0; i < userList.length; i++) {
-                if (userList[i] === user) continue;
+                if (userList[i]._id == userId)
+                    continue;
                 if (userList[i].profile.gender === "female")
                     result.push(userList[i].profile);
             }
@@ -72,7 +70,7 @@ let exportedMethods = {
 
         if (sexo === "male") {
             for (let i = 0; i < userList.length; i++) {
-                if (userList[i] === user) continue;
+                if (userList[i]._id === userId) continue;
                 if (userList[i].profile.gender === "male")
                     result.push(userList[i].profile);
             }
@@ -97,7 +95,6 @@ let exportedMethods = {
         if (user === "undefined")
             throw "username is not right!";
         const flag = await bcrypt.compare(password, user.hashedpassword);
-        console.log(flag);
         if (flag === false)
             throw "password not right";
     },
@@ -111,6 +108,27 @@ let exportedMethods = {
         if (updatedInfo === 'undefined')
             throw "can't update likes";
         console.log('success add like');
+    },
+
+    async updateImage(id, imageName) {
+        if (!imageName)
+            throw "No image name provided";
+        const userCollection = await Users();
+        const updatedInfo = await userCollection.updateOne(
+            { _id: ObjectId(id) }, { $set: { "profile.profileImage": imageName }});
+        if (!updatedInfo)
+            throw "couldn't update image name";
+    },
+
+    async replaceUser(id, updatedUser) {
+        if (!updatedUser)
+            throw "nothing to update";
+        const userCollection = await Users();
+        const updatedInfo = await userCollection.replaceOne(
+            {_id: ObjectId(id)}, updatedUser);
+        if (!updatedInfo)
+            throw "can't update user";
+        console.log('success');
     }
 }
 
