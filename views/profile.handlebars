@@ -1,6 +1,44 @@
-<div class="user-profile">
-    <form class="change-info">
-        <label for="username">Username</label>
-        <input type="text" name="username" value={{user.username}}>
+<div class="showcase">
+    <div class="img">
+        <img class="profile-img" src="/uploads/{{user.profile.profileImage}}" alt="profile">
+    </div>
+    <form action="/profile/{{ user._id }}" method="POST" class="profile-form" id="form">
+        <div>
+            <label for="username" id="username" class="signup-input">USERNAME</label>
+            <input type="text" name="username" placeholder="Create a username" value="{{user.username}}"/>
+        </div>
+        <div>
+            <label for="email" id="email" class="signup-input">Email Address</label>
+            <input type="email" name="email" placeholder="your email address" value="{{user.email}}"/>
+        </div>
+        <div>
+            <label for="hobby" id="hobby" class="signup-input">Hobby</label>
+            <input type="text" name="hobby"  placeholder="hobbies" value="{{user.profile.hobby}}"/>
+        </div>
+        <div>
+            <label for="occupation" id="occupation" class="signup-input">Occupation</label>
+            <input type="text" name="occupation"  placeholder="occupation" value="{{user.profile.occupation}}"/>
+        </div>
+        <div>
+            <label for="motto" id="motto" class="signup-input">Motto</label>
+            <input type="text" name="motto"  placeholder="write something you like" value="{{user.profile.Motto}}"/>
+        </div>
+            <h3>Private information</h3>
+        <div>
+            <label for="contactInfo" id="contactInfo" class="signup-input">Phone Number</label>
+            <input type="tel" name="contactInfo" placeholder="phone number" value="{{user.privateInfo.contactInfo}}"/>
+        </div>
+        <div>
+            <label for="age" id="age" class="signup-input">age</label>
+            <input type="number" name="age"  placeholder="enter your age" value="{{user.privateInfo.age}}"/>
+        </div>
+        <div>
+            <label for="location" id="location" class="signup-input">Location</label>
+            <input type="text" name="location"  placeholder="city you live" value="{{user.privateInfo.location}}"/>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
     </form>
 </div>
+{{>footer}}

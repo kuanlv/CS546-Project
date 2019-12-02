@@ -2,7 +2,7 @@ const express = require('express');
 const configRoutes = require('./routes');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-
+const path = require('path');
 
 const app = express();
 // static middleware
@@ -11,7 +11,10 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // template engine
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, 'views/layouts')
+}));
 app.set('view engine', 'handlebars');
 // initialize enviroment varaible
 const TWO_HOURS = 1000 * 60 * 60 * 2;

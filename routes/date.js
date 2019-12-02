@@ -6,7 +6,7 @@ const userData = require('../data');
 router.get('/', middleware.redirectLogin, async(req, res) => {
     try{
         const profiles = await userData.Users.getAllProfile(req.session.userId);
-        res.render('date', { profiles });
+        res.render('date', { profiles: profiles, title: "user list", id: req.session.userId });
     } catch(e) {
         res.status(400).send({error: e});
     }

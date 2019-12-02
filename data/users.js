@@ -97,6 +97,7 @@ let exportedMethods = {
         if (user === "undefined")
             throw "username is not right!";
         const flag = await bcrypt.compare(password, user.hashedpassword);
+        console.log(flag);
         if (flag === false)
             throw "password not right";
     },

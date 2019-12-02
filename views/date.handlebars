@@ -1,16 +1,22 @@
+{{>top}}
+
 <section class="all-profiles">
     {{#each profiles}}
     <div class="date-container">
-        <img src="uploads/{{this.profileImage}}">
+        <div class="images">
+            <img src="uploads/{{this.profileImage}}">
+        </div>
         <button class="btn" id="{{ this.name }}">LIKE</button>
-        <ul class="user-profile">
-            <li><p>name: {{this.name}}</p></li>
-            <li><p>gender: {{this.gender}}</p></li>
-            <li><p>occupation: {{this.occupation}}</p></li>
-            <li><p>hobby: {{this.hobby}}</p></li>
-            <li><p>motto: {{this.Motto}}</p></li>
-            <li><p>sex orientation: {{this.sexOrientation}}</p></li>
-        </ul>
+        <div class="user-info">
+            <ul class="user-profile">
+                <li><p>name: {{this.name}}</p></li>
+                <li><p>gender: {{this.gender}}</p></li>
+                <li><p>occupation: {{this.occupation}}</p></li>
+                <li><p>hobby: {{this.hobby}}</p></li>
+                <li><p>motto: {{this.Motto}}</p></li>
+                <li><p>sex orientation: {{this.sexOrientation}}</p></li>
+            </ul>
+        </div>
     </div>
     {{/each}}
     <script>

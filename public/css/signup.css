@@ -16,6 +16,11 @@ h2{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.current { 
+  color: red;
+  font-weight: bold;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -62,6 +67,11 @@ h2{
   text-transform: uppercase;
 }
 
+h3 {
+  text-align: center;
+  color: brown;
+}
+
 input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number]{
   width: 100%;
   box-sizing: border-box;
@@ -89,6 +99,7 @@ input[type=submit]{
   font-size: 20px;
   color: #fff;
 }
+
 input[type=submit]:hover{
   background: blanchedalmond;
   opacity: 0.7;
