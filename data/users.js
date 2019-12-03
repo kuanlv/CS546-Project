@@ -101,13 +101,25 @@ let exportedMethods = {
 
     async addLikes(MyId, IdOfMyLike) {
         if (!MyId || !IdOfMyLike)
-            throw "parameter missing!";
+            throw "parameter missing: add like";
         const userCollection = await Users();
         const updatedInfo = await userCollection.updateOne(
             { _id: ObjectId(MyId) }, { $push: { likes: IdOfMyLike } });
         if (updatedInfo === 'undefined')
             throw "can't update likes";
         console.log('success add like');
+    },
+
+    async removeLikes(MyId, IdOfMyDisLike) {
+        if (!MyId || !IdOfMyDisLike)
+            throw "parameter missing: remove like";
+        console.log("remove");
+        const userCollection = await Users();
+        const updatedInfo = await userCollection.updateOne(
+            {_id: ObjectId(MyId)}, {$pull: { likes: IdOfMyDisLike }})
+        if (!updatedInfo)
+            throw "no dislike id found!";
+        console.log('success removed');
     },
 
     async updateImage(id, imageName) {

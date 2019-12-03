@@ -6,7 +6,10 @@
         <div class="images">
             <img src="uploads/{{this.profileImage}}">
         </div>
-        <button class="btn" id="{{ this.name }}">LIKE</button>
+        <div class="button-list">
+            <button class="like-btn" id="{{ this.name }}">LIKE</button>
+            <button value="{{ this.name }}" class="dislike-btn">DISLIKE</button>
+        </div>
         <div class="user-info">
             <ul class="user-profile">
                 <li><p>name: {{this.name}}</p></li>
@@ -21,11 +24,15 @@
     {{/each}}
     <script>
         $(document).ready(function() {
-            $('.btn').click(function() {
+            $('.dislike-btn').hide();
+            $('.like-btn').click(function() {
                 const name = $(this).attr("id");
+                $(this).hide();
+                $(`button[value = ${name}]`).show();
                 data = {
+                    "operation": "like",
                     "name": name
-                }
+                };
                 $.ajax('http://localhost:3000/profile', {
                     type: 'POST',
                     data: JSON.stringify(data),
@@ -33,7 +40,25 @@
                     success: function() { console.log('success');},
                     error  : function() { console.log('error');}
                 });
-            })
+            });
+
+            $('.dislike-btn').click(function() {
+                const name = $(this).attr("value");
+                $(this).hide();
+                $(`button[id = ${name}]`).show();
+                data = {
+                    "operation": "dislike",
+                    "name": name
+                };
+                $.ajax('http://localhost:3000/profile', {
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function() { console.log('success');},
+                    error  : function() { console.log('error');}
+                });
+            });
+
         });
     </script>
 </section>

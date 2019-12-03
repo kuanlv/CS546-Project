@@ -43,11 +43,19 @@ router.get('/:id', async(req, res) => {
 
 router.post('/', async(req, res) => {
     try{
+        console.log(req.body);
         const name = req.body.name;
-        const LikedUser = await userData.Users.findUserbyUsername(name);
-        console.log(LikedUser);
-        const likedId = LikedUser._id;
-        return await userData.Users.addLikes(req.session.userId, likedId);
+        if (req.body.operation === "like") {
+            const LikedUser = await userData.Users.findUserbyUsername(name);
+            const likedId = LikedUser._id;
+            await userData.Users.addLikes(req.session.userId, likedId);
+            res.status(200);
+        } else if (req.body.operation === "dislike") {
+            const disLikedUser = await userData.Users.findUserbyUsername(name);
+            const likedId = disLikedUser._id;
+            await userData.Users.removeLikes(req.session.userId, likedId);
+            res.status(200);
+        }
     }catch(e) {
         res.status(400).send({error: e});
     }
