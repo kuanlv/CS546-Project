@@ -42,9 +42,34 @@ background-color: #555;
   
 /* profile.handlebars */
 .profile-img {
-    width: 37%;
+    width: 31%;
     height: 32vh;
     margin: 0;
+}
+
+.pro-span {
+    color: burlywood;
+}
+
+.pro-file-input {
+    background-color: bisque;
+    width: 12%
+}
+
+.profile-btn {
+    margin-top: 23px;
+    width: 12%;
+    font-size: 1.3rem;
+    color: chartreuse;
+}
+
+.profile-btn:hover {
+    color: chocolate;
+}
+
+.pro-form {
+    text-align: center;
+    
 }
 
 .img {
@@ -65,7 +90,7 @@ background-color: #555;
 
 h3 {
     text-align: center;
-    color: brown;
+    color: darkcyan;
 }
 
 input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number]{
@@ -100,24 +125,51 @@ input[type=submit]{
 input[type=submit]:hover{
     background: blanchedalmond;
     opacity: 0.7;
+    color: brown;
 }
 
 /* date.handlebars */
-img {
+.images {
+    text-align: center;
+}
+
+.date-container {
+    margin-top: 23px;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+.date-img {
     width: 12%;
     height: 32vh;
+    border: chartreuse dotted;
 }
 
 body {
     background-color: coral;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.user-profile{
-    margin: auto;
-}
-
-ul{
+.user-profile {
     list-style: none;
+}
+
+.button-list button {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: brown;
+    width: 4%;
+    height: 4vh;
+    color: chartreuse;
+    font-size: 1.2rem;
+}
+
+.button-list button:hover {
+    background-color: aquamarine;
+    border-radius: 15px;
+    cursor: pointer;
+    color: chocolate;
 }
 
 li p {
@@ -127,16 +179,75 @@ li p {
     line-height: normal;
 }
 
-button {
-    background-color: crimson;
-    width: 3%;
-    height: 1%;
+/* intermediate handlebars */
+.inter-h1 {
+    margin-top: 40px;
+    color: aquamarine;
+    text-align: center;
 }
 
-button:hover{
-    background-color: aquamarine;
-    border-radius: 15px;
-    cursor: pointer;
+.inter-form {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 65px;
+}
+
+input[type=file] {
+    color: rgb(5, 38, 39);
+    font-size: 1.2rem;
+}
+
+
+
+span {
+    color: rgb(9, 22, 22);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+.inter-userinfo {
+    margin-top: 34px;
+    text-align: center;
+    line-height: 7vh;
+    height: 50vh;
+    font-size: 1.6rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.inter-btn {
+    margin-top: 12px;
+    width: 7%;
+    font-size: 1.8rem;
+    color: rgb(72, 25, 110);
+    border-radius: 17px;
+}
+
+.inter-links {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 24px;
+}
+
+.inter-links a {
+    text-decoration: none;
+    display: block;
+    color: darkkhaki;
+}
+
+.inter-links a:hover {
+    text-decoration: underline;
+    color: brown;
+}
+
+.inter-img {
+    border: yellow dashed;
+}
+
+.inter-img-area {
+    text-align: center;
 }
 
 /* logout */

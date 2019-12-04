@@ -1,16 +1,8 @@
 {{>top}}
-<div class="container">
-    <h1>Last Step: upload your profile picture!</h1>
-    <form action="/intermediate" method="POST" enctype="multipart/form-data">
-        <div class="file-field">
-            <div class="btn grey">
-            <span>Picture</span>
-            <input type="file" name="myImage">
-            </div>
-        </div>
-        <button type="submit" class="btn">Submit</button>
-    </form>
-    <div>
+    <div class="inter-h1">
+        <h1>Last Step: upload your profile picture!</h1>
+    </div>
+    <div class="inter-userinfo">
         <ul>
             <li>Username: {{username}}</li>
             <li>Hobby: {{hobby}}</li>
@@ -20,15 +12,29 @@
             <li>Motto: {{motto}}</li>
         </ul>
     </div>
+
+    <div class="inter-form">
+        <form action="/intermediate" method="POST" enctype="multipart/form-data">
+            <div class="file-field">
+                <div class="btn-grey">
+                <span>Picture</span>
+                <input type="file" name="myImage">
+                </div>
+            </div>
+            <button type="submit" class="inter-btn">Submit</button>
+        </form>
+    </div>
     
     {{#if filePath}}
-        <img src= {{ filePath }}>
-        <div>
+        <div class="inter-img-area">
+            <img class="inter-img" src= {{ filePath }} alt="user-profile">
+        </div>
+        <div class="inter-links">
             <ul>
                 <li><a href="/login">Get Started!</a></li>
                 <li><a href="/profile/{{ id }}">Change Profile</a></li>
             </ul>
         </div>
     {{/if}}
-</div>
-{{>footer}}
+
+    {{>footer}}

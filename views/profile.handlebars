@@ -13,11 +13,11 @@
     <div class="img">
         <img class="profile-img" src="/uploads/{{ imageName }}" alt="profile">
     </div>
-    <form action="/profile/{{ user._id }}" method="POST" enctype="multipart/form-data">
+    <form class="pro-form" action="/profile/{{ user._id }}" method="POST" enctype="multipart/form-data">
         <div class="file-field">
             <div class="btn grey">
-            <span>Change Profile</span>
-            <input type="file" name="myImage">
+            <span class="pro-span">Change Profile</span>
+            <input class="pro-file-input" type="file" name="myImage">
             </div>
         </div>
         <button type="submit" class="profile-btn" id="{{ user._id }}">Submit</button>
@@ -49,7 +49,7 @@
             <input type="text" name="location"  placeholder="city you live" value="{{user.privateInfo.location}}"/>
         </div>
         <div>
-            <input type="submit" value="Make a change">
+            <input type="submit" value="Save change">
         </div>
     </form>
 </div>
