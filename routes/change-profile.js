@@ -12,12 +12,12 @@ router.post('/:id', async(req, res) => {
             updatedUser.profile.occupation = req.body.occupation;
         if (req.body.motto != updatedUser.profile.Motto)
             updatedUser.profile.Motto = req.body.motto;
-        if (req.body.contactInfo != updatedUser.privateInfo.contactInfo)
-            updatedUser.privateInfo.contactInfo = req.body.contactInfo;
-        if (req.body.age != updatedUser.privateInfo.age)
-            updatedUser.privateInfo.age = req.body.age;
-        if (req.body.location != updatedUser.privateInfo.location)
-            updatedUser.privateInfo.location = req.body.location;
+        if (req.body.contactInfo != updatedUser.profile.privateInfo.contactInfo)
+            updatedUser.profile.privateInfo.contactInfo = req.body.contactInfo;
+        if (req.body.age != updatedUser.profile.privateInfo.age)
+            updatedUser.profile.privateInfo.age = req.body.age;
+        if (req.body.location != updatedUser.profile.privateInfo.location)
+            updatedUser.profile.privateInfo.location = req.body.location;
         await userData.Users.replaceUser(req.params.id, updatedUser);
 
         res.render('profile', {

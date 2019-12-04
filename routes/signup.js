@@ -25,12 +25,13 @@ router.post('/', async(req, res) => {
             occupation: req.body.occupation, 
             sexOrientation: req.body.sexo,
             gender: req.body.gender,
-            Motto: req.body.motto
-        }, 
-        privateInfo: {
-            contactInfo: req.body.contactInfo, 
-            age: req.body.age,
-            location: req.body.location
+            Motto: req.body.motto,
+            match: [],
+            privateInfo: {
+                contactInfo: req.body.contactInfo, 
+                age: req.body.age,
+                location: req.body.location
+            }
         }
     }
     console.log(newUser);
@@ -42,6 +43,7 @@ router.post('/', async(req, res) => {
         console.log("signup post")
         const u = await data.Users.addUser(newUser);
         req.session.newid = u._id;
+        await data.Users.addProfileId(u._id);
         res.redirect('/intermediate');
     }catch(e) {
         console.log(e);

@@ -27,6 +27,16 @@ let exportedMethods = {
         return newUser;
     },
 
+    async addProfileId(userId) {
+        const userCollection = await Users();
+        const updatedInfo = await userCollection.updateOne(
+            { _id: ObjectId(userId) }, { $set: { "profile.profileId": userId } }
+        );
+        if (!updatedInfo)
+            throw "can't add profile id";
+        console.log("success add profile id");
+    },
+
     async findUserById(id) {
         if (!id)
             throw "No id provided";
@@ -70,7 +80,8 @@ let exportedMethods = {
 
         if (sexo === "male") {
             for (let i = 0; i < userList.length; i++) {
-                if (userList[i]._id === userId) continue;
+                if (userList[i]._id == userId) 
+                    continue;
                 if (userList[i].profile.gender === "male")
                     result.push(userList[i].profile);
             }
@@ -103,6 +114,11 @@ let exportedMethods = {
         if (!MyId || !IdOfMyLike)
             throw "parameter missing: add like";
         const userCollection = await Users();
+        // const user = await this.findUserById(MyId);
+        // const flag = user.likes.includes(`${IdOfMyLike}`);
+        // console.log(IdOfMyLike);
+        // console.log("1");
+        // console.log(flag);
         const updatedInfo = await userCollection.updateOne(
             { _id: ObjectId(MyId) }, { $push: { likes: IdOfMyLike } });
         if (updatedInfo === 'undefined')
@@ -111,12 +127,12 @@ let exportedMethods = {
     },
 
     async removeLikes(MyId, IdOfMyDisLike) {
-        if (!MyId || !IdOfMyDisLike)
-            throw "parameter missing: remove like";
+        // if (!MyId || !IdOfMyDisLike)
+        //     throw "parameter missing: remove like";
         console.log("remove");
         const userCollection = await Users();
         const updatedInfo = await userCollection.updateOne(
-            {_id: ObjectId(MyId)}, {$pull: { likes: IdOfMyDisLike }})
+            {_id: ObjectId(MyId)}, { $pull: { likes: IdOfMyDisLike } })
         if (!updatedInfo)
             throw "no dislike id found!";
         console.log('success removed');
@@ -141,7 +157,58 @@ let exportedMethods = {
         if (!updatedInfo)
             throw "can't update user";
         console.log('success');
+    },
+
+    async isMatch(MyId, likedUser) {
+        if (!MyId || !likedUser)
+            throw "argument missing: isMatch";
+        for (let i = 0; i < likedUser.likes.length; i++) {
+            if (likedUser.likes[i] == MyId)
+                return true;
+        }
+        return false;
+    },
+
+    async addMatch(MyId, likedId) {
+        if (!MyId || !likedId)
+            throw "argument missing: add match";
+        const userCollection = await Users();
+        const user = await this.findUserById(MyId);
+        if (user.profile.match.includes(likedId))
+            return;
+        const updatedInfo1 = await userCollection.updateOne(
+            { _id: ObjectId(MyId) }, { $push: { "profile.match": likedId }}
+        );
+
+        const updatedInfo2 = await userCollection.updateOne(
+            { _id: ObjectId(likedId) }, { $push: { "profile.match": MyId }}
+        );
+
+        if (!updatedInfo1 || !updatedInfo2)
+            throw "can't match";
+        console.log('success match');
+    },
+
+    async removeMatch(MyId, dislikedId) {
+        if (!MyId || !dislikedId)
+            throw "argument missing: remove match";
+        if (!this.isMatch(MyId, dislikedId)) {
+            console.log("They didn't match in the first place");
+            return;
+        }
+        const userCollection = await Users();
+        const updatedInfo1 = await userCollection.updateOne(
+            {_id: ObjectId(MyId)}, { $pull: { "profile.match": dislikedId } }
+        );
+        const updatedInfo2 = await userCollection.updateOne(
+            {_id: ObjectId(dislikedId)}, { $pull: { "profile.match": MyId } }
+        );
+
+        if (!updatedInfo1 || !updatedInfo2)
+            throw "can't dismatch";
+        console.log('success dismatch');
     }
+
 }
 
 module.exports = exportedMethods;

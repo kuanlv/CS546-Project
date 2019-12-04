@@ -47,6 +47,9 @@ router.get('/', middleware.redirectLogin, async(req, res) => {
             sexOrientation: user.profile.sexOrientation,
             gender: user.profile.gender,
             motto: user.profile.Motto,
+            age: user.profile.privateInfo.age,
+            location: user.profile.privateInfo.location,
+            contact: user.profile.privateInfo.contactInfo
         });
     } catch(e) {
         res.render('intermediate', {error: e});

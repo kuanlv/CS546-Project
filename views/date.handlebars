@@ -4,7 +4,7 @@
     {{#each profiles}}
     <div class="date-container">
         <div class="images">
-            <img class="date-img" src="uploads/{{this.profileImage}}" alt="user-profile">
+            <img class="date-img" src="uploads/{{ this.profileImage }}" alt="user-profile">
         </div>
         <div class="button-list">
             <button class="like-btn" id="{{ this.name }}">LIKE</button>
@@ -12,14 +12,16 @@
         </div>
         <div class="user-info">
             <ul class="user-profile">
-                <li><p>name: {{this.name}}</p></li>
-                <li><p>gender: {{this.gender}}</p></li>
-                <li><p>occupation: {{this.occupation}}</p></li>
-                <li><p>hobby: {{this.hobby}}</p></li>
-                <li><p>motto: {{this.Motto}}</p></li>
-                <li><p>sex orientation: {{this.sexOrientation}}</p></li>
+                <li><p>name: {{ this.name }}</p></li>
+                <li><p>gender: {{ this.gender }}</p></li>
+                <li><p>occupation: {{ this.occupation }}</p></li>
+                <li><p>hobby: {{ this.hobby }}</p></li>
+                <li><p>motto: {{ this.Motto }}</p></li>
+                <li><p>sex orientation: {{ this.sexOrientation }}</p></li>
             </ul>
         </div>
+
+        
     </div>
     {{/each}}
     <script>
@@ -33,7 +35,7 @@
                     "operation": "like",
                     "name": name
                 };
-                $.ajax('http://localhost:3000/profile', {
+                $.ajax('http://localhost:3000/date', {
                     type: 'POST',
                     data: JSON.stringify(data),
                     contentType: 'application/json',
@@ -50,7 +52,7 @@
                     "operation": "dislike",
                     "name": name
                 };
-                $.ajax('http://localhost:3000/profile', {
+                $.ajax('http://localhost:3000/date', {
                     type: 'POST',
                     data: JSON.stringify(data),
                     contentType: 'application/json',
