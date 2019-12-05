@@ -162,7 +162,24 @@ let exportedMethods = {
     async isMatch(MyId, likedUser) {
         if (!MyId || !likedUser)
             throw "argument missing: isMatch";
+        if (typeof(likedUser.profile.match) === "undefined")
+            return false;
+        for (let i = 0; i < likedUser.profile.match.length; i++) {
+            if (likedUser.profile.match[i] == MyId)
+                return true;
+        }
+        return false;
+    },
+
+    async CheckMatch(MyId, likedUser) {
+        if (!MyId || !likedUser)
+            throw "argument missing: check Match";
+        if (typeof(likedUser.likes) === "undefined")
+            return false;
+        console.log(3);
+        console.log(MyId);
         for (let i = 0; i < likedUser.likes.length; i++) {
+            console.log(likedUser.likes[i]);
             if (likedUser.likes[i] == MyId)
                 return true;
         }
@@ -192,7 +209,9 @@ let exportedMethods = {
     async removeMatch(MyId, dislikedId) {
         if (!MyId || !dislikedId)
             throw "argument missing: remove match";
-        if (!this.isMatch(MyId, dislikedId)) {
+        const dislikeUser = await this.findUserById(dislikedId);
+
+        if (!await this.isMatch(MyId, dislikeUser)) {
             console.log("They didn't match in the first place");
             return;
         }

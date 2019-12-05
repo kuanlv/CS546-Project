@@ -21,9 +21,9 @@ router.post('/', async(req, res) => {
             const likedId = LikedUser._id;
             await userData.Users.addLikes(req.session.userId, likedId);
             const profiles = await userData.Users.getAllProfile(req.session.userId);
-            const isMatch = await userData.Users.isMatch(req.session.userId, LikedUser);
-            console.log(isMatch);
-            if (isMatch)
+            const check = await userData.Users.CheckMatch(req.session.userId, LikedUser);
+            console.log(check);
+            if (check)
                 await userData.Users.addMatch(req.session.userId, likedId);
             res.render('date', { 
                 profiles: profiles, 
