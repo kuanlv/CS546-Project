@@ -1,6 +1,27 @@
 {{>top}}
 
-<section class="all-profiles">
+<div class="wrap">
+   <div class="search">
+        <form class="search-form" action="/search" method="POST">
+            <div class="form-hobby">
+                <label for="hobby">hobby</label>
+                <input type="text" id="hobby" name="hobby" placeholder="hobbies">
+            </div>
+            <div class="form-hobby">
+                <label for="occupation">occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="occupation">
+            </div>
+            <div>
+                <label id="gender" for="sexo" class="signup-input">Sex Orientation</label>
+                <input type="radio" name="sexo" value="male"/>Male
+                <input type="radio" name="sexo" value="female"/>Female 
+            </div>
+            <button type="submit" class="searchButton">search</button>
+        </form>
+   </div>
+</div>
+
+<section>
     {{#each profiles}}
     <div class="date-container">
         <div class="images">
@@ -23,7 +44,9 @@
 
         <a href="/private/{{ this.profileId }}" target="_blank">{{ this.name }}'s private Information</a>
     </div>
+
     {{/each}}
+
     <script>
         $(document).ready(function() {
             $('.dislike-btn').hide();
@@ -60,9 +83,9 @@
                     error  : function() { console.log('error');}
                 });
             });
-
         });
     </script>
 </section>
+
 
 {{>footer}}

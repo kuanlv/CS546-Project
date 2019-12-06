@@ -226,6 +226,138 @@ let exportedMethods = {
         if (!updatedInfo1 || !updatedInfo2)
             throw "can't dismatch";
         console.log('success dismatch');
+    },
+
+    async search(searchContent, userId) {
+        const profiles = await this.getAllProfile(userId);
+        let res = [];
+        // type 1 :  1 0 u
+        if (searchContent.hobby !== '' && searchContent.occupation === '' && typeof(searchContent.sexo) === 'undefined') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) {
+                    res.push(profiles[i]);
+                }
+            }
+            return res;
+        }
+
+        // type 2 : 1 1 u
+        if (searchContent.hobby !== '' && searchContent.occupation !== '' && typeof(searchContent.sexo) === 'undefined') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) 
+                    continue;
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        //  0 1 u 
+        if (searchContent.hobby === '' && searchContent.occupation !== '' && typeof(searchContent.sexo) === 'undefined') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 3: 1 1 m 
+        if (searchContent.hobby !== '' && searchContent.occupation !== '' && searchContent.sexo === 'male') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) 
+                    continue;
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'female')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 4: 1 1 f
+        if (searchContent.hobby !== '' && searchContent.occupation !== '' && searchContent.sexo === 'female') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) 
+                    continue;
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'male')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 5: 0 0 m
+        if (searchContent.hobby === '' && searchContent.occupation === '' && searchContent.sexo === 'male') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (profiles[i].sexOrientation === 'female')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 6: 0 0 f
+        if (searchContent.hobby === '' && searchContent.occupation === '' && searchContent.sexo === 'female') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (profiles[i].sexOrientation === 'male')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 7: 1 0 m
+        if (searchContent.hobby !== '' && searchContent.occupation === '' && searchContent.sexo === 'male') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'female')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // type 8: 1 0 f
+        if (searchContent.hobby !== '' && searchContent.occupation === '' && searchContent.sexo === 'female') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].hobby.toLowerCase().includes(searchContent.hobby.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'male')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // 0 1 f
+        if (searchContent.hobby !== '' && searchContent.occupation !== '' && searchContent.sexo === 'female') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'male')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
+
+        // 0 1 m
+        if (searchContent.hobby === '' && searchContent.occupation !== '' && searchContent.sexo === 'male') {
+            for (let i = 0; i < profiles.length; i++) {
+                if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
+                    continue;
+                if (profiles[i].sexOrientation === 'female')
+                    continue;
+                res.push(profiles[i]);
+            }
+            return res;
+        }
     }
 
 }
