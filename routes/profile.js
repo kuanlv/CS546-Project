@@ -35,7 +35,11 @@ router.get('/:id', async(req, res) => {
     try {
         console.log('get id')
         const user = await userData.Users.findUserById(req.params.id);
-        res.render('profile', { user: user, title: user.username, imageName: user.profile.profileImage });
+        res.render('profile', { 
+            id: user._id,
+            user: user, 
+            title: user.username, 
+            imageName: user.profile.profileImage });
     } catch(e) {
         res.status(404).send({error: "haha"});
     }
@@ -52,6 +56,7 @@ router.post('/:id', async(req, res) => {
             const user = await userData.Users.findUserById(req.params.id);
             await userData.Users.updateImage(req.params.id, imageName);
             res.render('profile', {
+                id: req.session.userId,
                 title: user.username + "'s profile",
                 imageName: imageName,
                 user: user

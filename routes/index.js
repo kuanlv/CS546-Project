@@ -8,6 +8,7 @@ const profileRoutes = require('./profile');
 const change_profileRoutes = require('./change-profile');
 const privateRoutes = require('./private');
 const searchRoutes = require('./search');
+const postRoutes = require('./post');
 
 const constructorMethod = app => {
     app.use('/', homeRoutes);
@@ -20,6 +21,7 @@ const constructorMethod = app => {
     app.use('/private', privateRoutes);
     app.use('/change-profile', change_profileRoutes);
     app.use('/search', searchRoutes);
+    app.use('/post', postRoutes);
     app.use('*', (req, res) => {
         res.redirect('/');
     });

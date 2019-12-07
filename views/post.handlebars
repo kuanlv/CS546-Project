@@ -1,0 +1,58 @@
+{{>top}}
+<button class="post-btn">Add a post</button>
+
+<form class="post-form" action="/post/{{ id }}" method="POST">
+    <div class="post-title">
+        <p class="error-message" id="1">Please provide a title</p>
+        <label for="title">title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div class="post-body">
+        <p class="error-message" id="2">Please provide post</p>
+        <label for="body">body:</label>
+        <textarea id="body" name="body">Post content</textarea>
+    </div>
+
+    <button class="add-video" type="button">Add a video</button>
+    <div class="video-area">
+        <div class="video-title">
+            <p class="error-message">Please provide a video title</p>
+            <label for="title">title:</label>
+            <input type="text" id="title" name="video-title">
+        </div>
+        <div class="video-description">
+            <p class="error-message">Please provide a video description</p>
+            <label for="description">description:</label>
+            <textarea id="description" name="video-description">add a description</textarea>
+        </div>
+        <div class="video-link">
+            <p class="error-message">Please provide a video link</p>
+            <label for="link">link</label>
+            <input id="link" name="link">
+        </div>
+    </div>
+    <button class="submit-post" type="submit">Submit</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('.error-message').hide();
+        $('.video-area').hide();
+        $('.post-form').hide();
+        $('.post-btn').click(function() {
+            $('.post-form').show();
+        })
+        $('.add-video').click(function() {
+            $('.video-area').show();
+        });
+        $('.submit-post').click(function(e) {
+            e.preventDefault();
+            if (!$('input#title').val()) 
+                $('#1').show();
+            if (!$('input#body').val()) 
+                $('#2').show();
+        });
+
+
+    });
+</script>

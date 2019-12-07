@@ -292,7 +292,8 @@ let exportedMethods = {
         }
 
         // type 5: 0 0 m
-        if (searchContent.hobby === '' && searchContent.occupation === '' && searchContent.sexo === 'male') {
+        if (searchContent.hobby === "" && searchContent.occupation === "" && searchContent.sexo === 'male') {
+            console.log("coming in");
             for (let i = 0; i < profiles.length; i++) {
                 if (profiles[i].sexOrientation === 'female')
                     continue;
@@ -336,7 +337,7 @@ let exportedMethods = {
         }
 
         // 0 1 f
-        if (searchContent.hobby !== '' && searchContent.occupation !== '' && searchContent.sexo === 'female') {
+        if (searchContent.hobby === '' && searchContent.occupation !== '' && searchContent.sexo === 'female') {
             for (let i = 0; i < profiles.length; i++) {
                 if (!profiles[i].occupation.toLowerCase().includes(searchContent.occupation.toLowerCase())) 
                     continue;

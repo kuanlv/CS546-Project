@@ -11,6 +11,7 @@ router.get('/:id', async(req, res) => {
             user: likedUser
         })
     res.render('error', {
+        title: "oops",
         error: `${likedUser.username} and you are not matched!`
     });
 })
