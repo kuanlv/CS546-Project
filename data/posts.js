@@ -5,15 +5,16 @@ ObjectId = require("mongodb").ObjectID;
 
 let exportedMethods = {
     async getPostByUserId(userId) {
-        if (!userId) 
-            throw "No userId provided for post";
+        // if (typeof(userId) === 'undefined') 
+        //     throw "No userId provided for post";
         const postCollections = await Posts();
         const post = await postCollections.findOne(
             { userId: ObjectId(userId) }
         );
-        if (!post)
-            throw "No post found with this userId";
-        return post;
+        // if (!post)
+        //     throw "No post found with this userId";
+        let res = post.posts;
+        return res;
     },
 
     async findPostById(postId) {
@@ -41,10 +42,6 @@ let exportedMethods = {
             throw "can't add post";
     },
 
-    async getUserPosts(userId) {
-        let res = await this.getPostByUserId(userId).posts;
-        return res;
-    }
 };
 
 module.exports = exportedMethods;

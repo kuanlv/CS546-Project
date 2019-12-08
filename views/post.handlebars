@@ -1,38 +1,65 @@
 {{>top}}
 <button class="post-btn">Add a post</button>
 
-<form class="post-form" action="/post/{{ id }}" method="POST">
-    <div class="post-title">
-        <p class="error-message" id="1">Please provide a title</p>
-        <label for="title">title:</label>
-        <input type="text" id="title" name="title">
-    </div>
-    <div class="post-body">
-        <p class="error-message" id="2">Please provide post</p>
-        <label for="body">body:</label>
-        <textarea id="body" name="body"></textarea>
-    </div>
-
-    <button class="add-video" type="button">Add a video</button>
-    <div class="video-area">
-        <div class="video-title">
-            <p class="error-message">Please provide a video title</p>
+<div class="post-form-area">
+    <form class="post-form" action="/post/{{ id }}" method="POST">
+        <div class="post-title">
+            <p class="error-message" id="1">Please provide a title</p>
             <label for="title">title:</label>
-            <input type="text" id="title" name="video-title">
+            <input type="text" id="title" name="title">
         </div>
-        <div class="video-description">
-            <p class="error-message">Please provide a video description</p>
-            <label for="description">description:</label>
-            <textarea id="description" name="video-description"></textarea>
+        <div class="post-body">
+            <p class="error-message" id="2">Please provide post</p>
+            <label for="body">body:</label>
+            <input id="body" name="body">
         </div>
-        <div class="video-link">
-            <p class="error-message">Please provide a video link</p>
-            <label for="link">link</label>
-            <input id="link" name="link">
+
+        <button class="add-video" type="button">Add a video</button>
+        <div class="video-area">
+            <div class="video-title">
+                <p class="error-message">Please provide a video title</p>
+                <label for="videoTitle">title:</label>
+                <input type="text" id="title" name="videoTitle">
+            </div>
+            <div class="video-description">
+                <p class="error-message">Please provide a video description</p>
+                <label for="videoDescription">description:</label>
+                <input id="description" name="videoDescription">
+            </div>
+            <div class="video-link">
+                <p class="error-message">Please provide a video link</p>
+                <label for="link">link</label>
+                <input id="link" name="link">
+            </div>
         </div>
-    </div>
-    <button class="submit-post" type="submit">Submit</button>
-</form>
+        <button class="submit-post" type="submit">Submit</button>
+    </form>
+</div>
+
+<section>
+    {{#each posts}}
+        <div class="single-post">
+        {{#if this.title}}
+            <div class="text-post">
+                <p>{{ this.title }}</p>
+                <article>{{ this.body }}</article>
+            </div>
+        {{/if}}
+
+        {{#if this.videoTitle}}
+            <div class="video-post">
+                <p>{{ this.videoTitle }}</p>
+                <article>{{ this.videoDescription }}</article>
+                <iframe width="560" height="315" 
+                src="{{ this.link }}" 
+                frameborder="0" allow="accelerometer; autoplay; 
+                encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+            </div>
+        {{/if}}
+        </div>
+    {{/each}}
+</section>
 
 
 <script>
