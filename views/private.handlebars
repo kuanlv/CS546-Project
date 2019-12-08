@@ -8,7 +8,27 @@
 <div>
     <p>I'm living in {{user.profile.privateInfo.location}}</p> 
 </div>
-<div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rN-dnznnwOw" 
-    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<section>
+    {{#each posts}}
+        <div class="single-post">
+        {{#if this.title}}
+            <div class="text-post">
+                <p>Post Title: {{ this.title }}</p>
+                <article>Post: {{ this.body }}</article>
+            </div>
+        {{/if}}
+
+        {{#if this.videoTitle}}
+            <div class="video-post">
+                <p>Video Title: {{ this.videoTitle }}</p>
+                <article>Video Description: {{ this.videoDescription }}</article>
+                <iframe width="560" height="315" 
+                src="{{ this.link }}" 
+                frameborder="0" allow="accelerometer; autoplay; 
+                encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+            </div>
+        {{/if}}
+        </div>
+    {{/each}}
+</section>

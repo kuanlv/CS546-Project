@@ -8,7 +8,7 @@ router.get('/:id', async(req, res) => {
     try{
         console.log('here get in')
         console.log(req.session.userId);
-        const posts = await postData.getPostByUserId(req.session.userId);
+        const posts = await postData.getUserPosts(req.session.userId);
         console.log(posts);
         res.render('post', {
             id: req.session.userId,

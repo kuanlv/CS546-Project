@@ -4,9 +4,9 @@ const userFn = require('./users');
 ObjectId = require("mongodb").ObjectID;
 
 let exportedMethods = {
-    async getPostByUserId(userId) {
-        // if (typeof(userId) === 'undefined') 
-        //     throw "No userId provided for post";
+    async getUserPosts(userId) {
+        if (typeof(userId) === 'undefined') 
+            throw "No userId provided for post";
         const postCollections = await Posts();
         const post = await postCollections.findOne(
             { userId: ObjectId(userId) }

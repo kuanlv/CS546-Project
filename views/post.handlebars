@@ -41,15 +41,15 @@
         <div class="single-post">
         {{#if this.title}}
             <div class="text-post">
-                <p>{{ this.title }}</p>
-                <article>{{ this.body }}</article>
+                <p>Post Title: {{ this.title }}</p>
+                <article>Post: {{ this.body }}</article>
             </div>
         {{/if}}
 
         {{#if this.videoTitle}}
             <div class="video-post">
-                <p>{{ this.videoTitle }}</p>
-                <article>{{ this.videoDescription }}</article>
+                <p>Video Title: {{ this.videoTitle }}</p>
+                <article>Video Description: {{ this.videoDescription }}</article>
                 <iframe width="560" height="315" 
                 src="{{ this.link }}" 
                 frameborder="0" allow="accelerometer; autoplay; 
