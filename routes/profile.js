@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userData = require('../data');
+const userData = require('../data').Users;
 const multer = require('multer');
 const path = require('path');
 
@@ -34,7 +34,7 @@ function checkFileType(file, cb) {
 router.get('/:id', async(req, res) => {
     try {
         console.log('get id')
-        const user = await userData.Users.findUserById(req.params.id);
+        const user = await userData.findUserById(req.params.id);
         res.render('profile', { 
             id: user._id,
             user: user, 
@@ -53,8 +53,8 @@ router.post('/:id', async(req, res) => {
         const imageName = req.file.filename;
         console.log(imageName);
         try{ 
-            const user = await userData.Users.findUserById(req.params.id);
-            await userData.Users.updateImage(req.params.id, imageName);
+            const user = await userData.findUserById(req.params.id);
+            await userData.updateImage(req.params.id, imageName);
             res.render('profile', {
                 id: req.session.userId,
                 title: user.username + "'s profile",

@@ -10,7 +10,7 @@
     <div class="post-body">
         <p class="error-message" id="2">Please provide post</p>
         <label for="body">body:</label>
-        <textarea id="body" name="body">Post content</textarea>
+        <textarea id="body" name="body"></textarea>
     </div>
 
     <button class="add-video" type="button">Add a video</button>
@@ -23,7 +23,7 @@
         <div class="video-description">
             <p class="error-message">Please provide a video description</p>
             <label for="description">description:</label>
-            <textarea id="description" name="video-description">add a description</textarea>
+            <textarea id="description" name="video-description"></textarea>
         </div>
         <div class="video-link">
             <p class="error-message">Please provide a video link</p>
@@ -33,6 +33,7 @@
     </div>
     <button class="submit-post" type="submit">Submit</button>
 </form>
+
 
 <script>
     $(document).ready(function() {
@@ -46,7 +47,6 @@
             $('.video-area').show();
         });
         $('.submit-post').click(function(e) {
-            e.preventDefault();
             if (!$('input#title').val()) 
                 $('#1').show();
             if (!$('input#body').val()) 

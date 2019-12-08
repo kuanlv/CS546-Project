@@ -58,13 +58,15 @@ background-color: #555;
 
 .profile-btn {
     margin-top: 23px;
-    width: 12%;
+    width: 32%;
+    background-color: brown;
     font-size: 1.3rem;
     color: chartreuse;
 }
 
 .profile-btn:hover {
     color: chocolate;
+    background-color: bisque;
 }
 
 .pro-form {
@@ -159,15 +161,30 @@ body {
     margin-top: 12px;
     margin-bottom: 12px;
     background-color: brown;
-    width: 4%;
+    width: 12%;
+    border-radius: 15px;
     height: 4vh;
     color: chartreuse;
     font-size: 1.2rem;
 }
 
+.date-container a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: azure;
+}
+
+.date-container a:hover {
+    text-decoration: dotted;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(6, 54, 54);
+}
+
 .button-list button:hover {
     background-color: aquamarine;
-    border-radius: 15px;
+    border-radius: 19px;
     cursor: pointer;
     color: chocolate;
 }

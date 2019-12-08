@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data');
+const userData = require('../data').Users;
 const path = require("path");
 const middleware = require('../middleware/middleware');
 
@@ -14,9 +14,10 @@ router.post('/', async(req, res) => {
         return res.redirect('/login');
     }
     try {
-        const user = await data.Users.findUserbyUsername(username);
-        await data.Users.isPasswordCorrect(username, password);
+        const user = await userData.findUserbyUsername(username);
+        await userData.isPasswordCorrect(username, password);
         req.session.userId = user._id;
+        console.log(user);
         res.redirect('date');
     } catch(e) {
         return res.redirect('/login');

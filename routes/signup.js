@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require("path");
-const data = require('../data');
+const userData = require('../data').Users;
 const bcrypt = require('bcrypt');
 const middleware = require('../middleware/middleware');
 const saltRounds = 10;
@@ -41,9 +41,9 @@ router.post('/', async(req, res) => {
     //     return res.redirect('/signup');
     try {
         console.log("signup post")
-        const u = await data.Users.addUser(newUser);
+        const u = await userData.addUser(newUser);
         req.session.newid = u._id;
-        await data.Users.addProfileId(u._id);
+        await userData.addProfileId(u._id);
         res.redirect('/intermediate');
     }catch(e) {
         console.log(e);

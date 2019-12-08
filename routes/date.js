@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const middleware = require('../middleware/middleware');
-const userData = require('../data');
+const userData = require('../data').Users;
 
 router.get('/', middleware.redirectLogin, async(req, res) => {
     try{
-        const profiles = await userData.Users.getAllProfile(req.session.userId);
-        res.render('date', { profiles: profiles, title: "user list", id: req.session.userId });
+        const profiles = await userData.getAllProfile(req.session.userId);
+        res.render('date', { 
+            profiles: profiles, 
+            title: "user list", 
+            id: req.session.userId 
+        });
     } catch(e) {
         res.status(400).send({error: e});
     }
@@ -17,24 +21,24 @@ router.post('/', async(req, res) => {
         console.log(req.body);
         const name = req.body.name;
         if (req.body.operation === "like") {
-            const LikedUser = await userData.Users.findUserbyUsername(name);
+            const LikedUser = await userData.findUserbyUsername(name);
             const likedId = LikedUser._id;
-            await userData.Users.addLikes(req.session.userId, likedId);
-            const profiles = await userData.Users.getAllProfile(req.session.userId);
-            const check = await userData.Users.CheckMatch(req.session.userId, LikedUser);
+            await userData.addLikes(req.session.userId, likedId);
+            const profiles = await userData.getAllProfile(req.session.userId);
+            const check = await userData.CheckMatch(req.session.userId, LikedUser);
             console.log(check);
             if (check)
-                await userData.Users.addMatch(req.session.userId, likedId);
+                await userData.addMatch(req.session.userId, likedId);
             res.render('date', { 
                 profiles: profiles, 
                 title: "user list", 
                 id: req.session.userId
             });
         } else if (req.body.operation === "dislike") {
-            const disLikedUser = await userData.Users.findUserbyUsername(name);
+            const disLikedUser = await userData.findUserbyUsername(name);
             const dislikedId = disLikedUser._id;
-            await userData.Users.removeLikes(req.session.userId, dislikedId);
-            await userData.Users.removeMatch(req.session.userId, dislikedId);
+            await userData.removeLikes(req.session.userId, dislikedId);
+            await userData.removeMatch(req.session.userId, dislikedId);
             console.log("remove likes");
             res.status(200);
         }

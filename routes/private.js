@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userData = require('../data');
+const userData = require('../data').Users;
 
 router.get('/:id', async(req, res) => {
-    const likedUser = await userData.Users.findUserById(req.params.id);
-    const isMatch = await userData.Users.isMatch(req.session.userId, likedUser);
+    const likedUser = await userData.findUserById(req.params.id);
+    const isMatch = await userData.isMatch(req.session.userId, likedUser);
     console.log(isMatch);
     if (isMatch)
         return res.render('private', {

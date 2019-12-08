@@ -3,7 +3,7 @@ const router = express.Router();
 const middleware = require('../middleware/middleware');
 const multer = require('multer');
 const path = require('path');
-const userData = require('../data');
+const userData = require('../data').Users;
 
 // set up multer and upload function //
 const storage = multer.diskStorage({
@@ -36,7 +36,7 @@ router.get('/', middleware.redirectLogin, async(req, res) => {
     console.log("get inter");
     console.log(req.session.newid);
     try {
-        const user = await userData.Users.findUserById(req.session.newid);
+        const user = await userData.findUserById(req.session.newid);
         const id = ObjectId(user._id);
         res.render('intermediate', {
             id: id,
@@ -62,7 +62,7 @@ router.post('/', async(req, res) => {
             return res.render('intermediate', {msg: err});
         const imageName = req.file.filename;
         try{ 
-            const user = await userData.Users.findUserById(req.session.newid);
+            const user = await userData.findUserById(req.session.newid);
             const id = ObjectId(user._id);
             console.log(req.session);
             await userData.Users.addImageName(req.session.newid, imageName);

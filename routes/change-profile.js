@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userData = require('../data');
+const userData = require('../data').Users;
 
 router.post('/:id', async(req, res) => {
     try {
-        const user = await userData.Users.findUserById(req.params.id);
+        const user = await userData.findUserById(req.params.id);
         let updatedUser = user;
         if (req.body.hobby != updatedUser.profile.hobby)
             updatedUser.profile.hobby = req.body.hobby;
@@ -18,7 +18,7 @@ router.post('/:id', async(req, res) => {
             updatedUser.profile.privateInfo.age = req.body.age;
         if (req.body.location != updatedUser.profile.privateInfo.location)
             updatedUser.profile.privateInfo.location = req.body.location;
-        await userData.Users.replaceUser(req.params.id, updatedUser);
+        await userData.replaceUser(req.params.id, updatedUser);
 
         res.render('profile', {
             user: user,

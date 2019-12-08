@@ -1,5 +1,6 @@
 const mongoCollections = require('../config/mongoCollections');
 const Users = mongoCollections.Users;
+const Posts = mongoCollections.Posts;
 const bcrypt = require('bcrypt');
 ObjectId = require("mongodb").ObjectID;
 
@@ -20,10 +21,16 @@ let exportedMethods = {
 
     async addUser(user) {
         const userCollection = await Users();
-        const insertionInfo = await userCollection.insertOne(user);
-        if (!insertionInfo)
+        const postCollection = await Posts();
+        const insertionInfo1 = await userCollection.insertOne(user);
+        let post = {
+            userId: insertionInfo1.insertedId,
+            posts: []
+        }
+        const insertionInfo2 = await postCollection.insertOne(post);
+        if (!insertionInfo1 || !insertionInfo2)
             throw "Can't insert!";
-        const newUser = await this.findUserById(insertionInfo.insertedId);
+        const newUser = await this.findUserById(insertionInfo1.insertedId);
         return newUser;
     },
 
