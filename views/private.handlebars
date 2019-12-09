@@ -1,14 +1,21 @@
-<h3>Private information</h3>
-<div>
-    <p>Contact information: {{user.profile.privateInfo.contactInfo}}</p>
+
+<h2 class="private-h">{{ user.username }}'s Private information:</h2>
+<div class="private-img">
+    <img src="/uploads/{{ user.profile.profileImage }}" alt="matched user profile">
 </div>
-<div>
-    <p>My age is: {{user.profile.privateInfo.age}}</p> 
-</div>
-<div>
-    <p>I'm living in {{user.profile.privateInfo.location}}</p> 
+<div class="private-info">
+    <div>
+        <p>Contact information: {{user.profile.privateInfo.contactInfo}}</p>
+    </div>
+    <div>
+        <p>My age is: {{user.profile.privateInfo.age}}</p> 
+    </div>
+    <div>
+        <p>I'm living in {{user.profile.privateInfo.location}}</p> 
+    </div>
 </div>
 <section>
+    <h2 class="private-h">{{ user.username }}'s posts:</h2>
     {{#each posts}}
         <div class="single-post">
         {{#if this.title}}
@@ -21,14 +28,17 @@
         {{#if this.videoTitle}}
             <div class="video-post">
                 <p>Video Title: {{ this.videoTitle }}</p>
-                <article>Video Description: {{ this.videoDescription }}</article>
-                <iframe width="560" height="315" 
-                src="{{ this.link }}" 
-                frameborder="0" allow="accelerometer; autoplay; 
-                encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen></iframe>
+                <article class="video-article">Video Description: {{ this.videoDescription }}</article>
+                <div class="video-area">
+                    <iframe width="560" height="315" 
+                    src="{{ this.link }}" 
+                    frameborder="0" allow="accelerometer; autoplay; 
+                    encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                </div>
             </div>
         {{/if}}
         </div>
     {{/each}}
 </section>
+{{>footer}}

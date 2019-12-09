@@ -196,6 +196,51 @@ li p {
     line-height: normal;
 }
 
+/* private handlebars */
+.private-info {
+    text-align: center;
+    color: rgb(44, 26, 3);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    border-bottom: blueviolet dotted;
+}
+
+.video-area {
+    margin: 23px 0 0 23px;
+}
+
+h2 {
+    text-align: center;
+    color: darkcyan;
+}
+
+.private-info p {
+    margin: 12px 0 12px 0;
+}
+
+.private-h {
+    margin-top: 23px;
+}
+
+.single-post {
+    margin: 23px 0 23px 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(27, 39, 6);
+    font-weight: bold;
+}
+
+.private-img {
+    text-align: center;
+}
+
+.private-img img {
+    margin: 23px 0 23px 0;
+    width: 14%;
+    height: 32vh;
+}
+
 /* intermediate handlebars */
 .inter-h1 {
     margin-top: 40px;
@@ -282,6 +327,6 @@ footer{
 footer p{
     padding-top: 12px;
     margin: 0;
-    font-size: 23px;
+    font-size: 12px;
 }
 
