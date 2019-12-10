@@ -8,8 +8,8 @@ body {
 }
 
 .loginbox {
-    width: 29%;
-    height: 56vh;
+    width: 39%;
+    height: 79vh;
     background: rgba(34, 42, 2, 0.79);
     color: rgb(231, 247, 12);
     top: 50%;
@@ -39,7 +39,7 @@ h1 {
     color: rgb(243, 174, 178);
 }
 
-.loginbox p{
+.loginbox label{
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -47,7 +47,7 @@ h1 {
 }
 
 .loginbox input {
-    width: 100%;
+    width: 90%;
     margin-bottom: 45px;
 }
 
@@ -62,6 +62,18 @@ h1 {
     font-size: 16px;
 }
 
+.loginbox button:hover[type="submit"] {
+    color: chartreuse;
+    background-color: brown;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#login-form a {
+    text-decoration: none;
+    margin: 0 12px 0 12px;
+}
+
 .loginbox button[type="submit"]
 {
     border: none;
@@ -70,7 +82,7 @@ h1 {
     background: #fb2525;
     color: #fff;
     font-size: 22px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 53px;
 }
 
@@ -79,6 +91,7 @@ h1 {
     cursor: pointer;
     background: #ffc107;
     color: #000;
+
 }
 
 .loginbox a{

@@ -1,24 +1,22 @@
 {{>top}}
 
 <div class="wrap">
-   <div class="search">
-        <form class="search-form" action="/search" method="POST">
-            <div class="form-hobby">
-                <label for="hobby">hobby</label>
-                <input type="text" id="hobby" name="hobby" placeholder="hobbies">
-            </div>
-            <div class="form-hobby">
-                <label for="occupation">occupation</label>
-                <input type="text" id="occupation" name="occupation" placeholder="occupation">
-            </div>
-            <div>
-                <label id="gender" for="sexo" class="signup-input">Sex Orientation</label>
-                <input type="radio" name="sexo" value="male"/>Male
-                <input type="radio" name="sexo" value="female"/>Female 
-            </div>
-            <button type="submit" class="searchButton">search</button>
-        </form>
-   </div>
+    <form class="search-form" action="/search" method="POST">
+        <div class="form-label">
+            <label for="hobby">search by hobby</label>
+            <input type="text" id="hobby" name="hobby" placeholder="hobbies">
+        </div>
+        <div class="form-label">
+            <label for="occupation">search by occupation</label>
+            <input type="text" id="occupation" name="occupation" placeholder="occupation">
+        </div>
+        <div>
+            <label id="gender" for="sexo" class="form-label">search by Sex Orientation</label>
+            <input type="radio" name="sexo" value="male"/>Male
+            <input type="radio" name="sexo" value="female"/>Female 
+        </div>
+        <button type="submit" class="searchButton">search</button>
+    </form>
 </div>
 
 <section>

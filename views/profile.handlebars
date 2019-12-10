@@ -16,8 +16,8 @@
     <form class="pro-form" action="/profile/{{ user._id }}" method="POST" enctype="multipart/form-data">
         <div class="file-field">
             <div class="btn grey">
-            <span class="pro-span">Change Profile</span>
-            <input class="pro-file-input" type="file" name="myImage">
+            <label class="profile-label" for="myImage">Change Profile</label>
+            <input class="pro-file-input" type="file" name="myImage" id="myImage">
             </div>
         </div>
         <button type="submit" class="profile-btn" id="{{ user._id }}">Submit</button>

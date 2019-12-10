@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+header {
+  margin-bottom: 40px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -58,11 +62,11 @@ h2{
 .showcase{
   max-width: 42%;
   border-radius: 20px;
-  margin-top: 100px;
   background: rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
   padding: 40px;
   margin: auto;
+  margin-bottom: 44px;
   color: aquamarine;
   text-transform: uppercase;
 }

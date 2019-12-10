@@ -1,6 +1,7 @@
 {{>top}}
-<button class="post-btn">Add a post</button>
-
+<div class="btn-area">
+    <button class="post-btn">Add a post</button>
+</div>
 <div class="post-form-area">
     <form class="post-form" action="/post/{{ id }}" method="POST">
         <div class="post-title">
@@ -11,7 +12,7 @@
         <div class="post-body">
             <p class="error-message" id="2">Please provide post</p>
             <label for="body">body:</label>
-            <input id="body" name="body">
+            <input type="text" id="body" name="body">
         </div>
 
         <button class="add-video" type="button">Add a video</button>
@@ -24,12 +25,12 @@
             <div class="video-description">
                 <p class="error-message">Please provide a video description</p>
                 <label for="videoDescription">description:</label>
-                <input id="description" name="videoDescription">
+                <input type="text" id="description" name="videoDescription">
             </div>
             <div class="video-link">
                 <p class="error-message">Please provide a video link</p>
                 <label for="link">link</label>
-                <input id="link" name="link">
+                <input type="text" id="link" name="link">
             </div>
         </div>
         <button class="submit-post" type="submit">Submit</button>

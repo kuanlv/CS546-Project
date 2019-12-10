@@ -41,6 +41,29 @@ background-color: #555;
 }
   
 /* profile.handlebars */
+
+input[type="file"] {
+    display: none;
+}
+
+.profile-label {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: rgb(38, 138, 138);
+    color: darkred;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.profile-label:hover {
+    background-color: brown;
+    color: bisque;
+    border-radius: 19px;
+}
+
 .profile-img {
     width: 31%;
     height: 32vh;
@@ -58,15 +81,18 @@ background-color: #555;
 
 .profile-btn {
     margin-top: 23px;
-    width: 32%;
+    width: 22%;
+    border-radius: 9px;
     background-color: brown;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: chartreuse;
+    margin-bottom: 19px;
 }
 
 .profile-btn:hover {
     color: chocolate;
     background-color: bisque;
+    border-radius: 12px;
 }
 
 .pro-form {
@@ -81,16 +107,19 @@ background-color: #555;
 .showcase{
     max-width: 42%;
     border-radius: 20px;
-    margin-top: 100px;
     background: rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
     padding: 40px;
     margin: auto;
+    margin-top: 33px;
+    margin-bottom: 33px;
     color: aquamarine;
     text-transform: uppercase;
 }
 
 h3 {
+    margin-top: 17px;
+    margin-bottom: 17px;
     text-align: center;
     color: darkcyan;
 }
@@ -131,6 +160,48 @@ input[type=submit]:hover{
 }
 
 /* date.handlebars */
+.wrap {
+    margin: 28px 12px 12px 12px;
+    text-align: center;
+}
+
+.searchButton {
+    margin-top: 19px;
+    margin-bottom: 12px;
+    width: 8%;
+    height: 7vh;
+    font-size: 1.1rem;
+    background-color: bisque;
+    color: cadetblue;
+    border-radius: 7px;
+}
+
+.searchButton:hover {
+    border-radius: 17px;
+    background-color: darkorange;
+    color: aquamarine;
+    cursor: pointer;
+
+}
+
+.search-form {
+    text-align: center;
+}
+
+.form-label {
+    margin: auto;
+    margin-bottom: 23px;
+    margin-top: 21px;
+    text-align: center;
+    width: 59%;
+    color: rgb(46, 34, 3);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+
 .images {
     text-align: center;
 }
@@ -195,6 +266,92 @@ li p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: normal;
 }
+
+/* post handlebars */
+.post-btn {
+    margin: auto;
+    width: 22%;
+    height: 10vh;
+    font-size: 2.1rem;
+    background-color: bisque;
+    color: brown;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.post-btn:hover {
+    border-radius: 20px;
+}
+
+.post-form-area {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    color: darkolivegreen;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.post-body {
+    margin-bottom: 30px;
+    width: 70%;
+    margin: auto;
+}
+
+.post-title {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.video-title {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.video-decription {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.add-video {
+    margin-top: 40px;
+    margin: auto;
+    width: 22%;
+    height: 10vh;
+    font-size: 2.1rem;
+    background-color: bisque;
+    color: brown;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+input[type="url"] {
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.submit-post {
+    margin-top: 40px;
+    margin: auto;
+    width: 22%;
+    height: 10vh;
+    font-size: 2.1rem;
+    background-color: bisque;
+    color: brown;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btn-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
 
 /* private handlebars */
 .private-info {
