@@ -64,8 +64,8 @@ router.post('/', async(req, res) => {
         try{ 
             const user = await userData.findUserById(req.session.newid);
             const id = ObjectId(user._id);
-            console.log(req.session);
-            await userData.Users.addImageName(req.session.newid, imageName);
+            console.log(imageName);
+            await userData.addImageName(req.session.newid, imageName);
             res.render('intermediate', {
                 msg: "file uploaded",
                 filePath: "uploads/" + req.file.filename,
@@ -76,7 +76,10 @@ router.post('/', async(req, res) => {
                 occupation: user.profile.occupation, 
                 sexOrientation: user.profile.sexOrientation,
                 gender: user.profile.gender,
-                motto: user.profile.Motto
+                motto: user.profile.Motto,
+                age: user.privateInfo.age,
+                location: user.privateInfo.location,
+                contact: user.privateInfo.contact
             });
         }catch(e) {
             res.render('intermediate', {error: e});

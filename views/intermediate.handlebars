@@ -11,20 +11,24 @@
             <li>Gender: {{gender}}</li>
             <li>Motto: {{motto}}</li>
         </ul>
+    </div>
+    <div class="inter-private">
         <h3>private information</h3>
+        <div class="inter-ul">
         <ul>
             <li>Age: {{age}}</li>
             <li>Location: {{location}}</li>
             <li>Contact: {{contact}}</li>
         </ul>
+        </div>
     </div>
 
     <div class="inter-form">
         <form action="/intermediate" method="POST" enctype="multipart/form-data">
             <div class="file-field">
                 <div class="btn-grey">
-                <span>Picture</span>
-                <input type="file" name="myImage">
+                <label class="inter-label" for="file">Upload Picture</label>
+                <input type="file" id="file" name="myImage">
                 </div>
             </div>
             <button type="submit" class="inter-btn">Submit</button>

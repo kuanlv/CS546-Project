@@ -65,7 +65,7 @@ input[type="file"] {
 }
 
 .profile-img {
-    width: 31%;
+    width: 35%;
     height: 32vh;
     margin: 0;
 }
@@ -417,6 +417,30 @@ input[type=file] {
     font-size: 1.2rem;
 }
 
+.inter-label {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: rgb(38, 138, 138);
+    color: darkred;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.inter-label:hover {
+    background-color: brown;
+    color: bisque;
+    border-radius: 19px;
+}
+
+.inter-private {
+    text-align: center;
+    font-size: 1.1rem;
+    color: darkslategray;
+    font-weight: bold;
+}
 
 
 span {
@@ -438,9 +462,16 @@ span {
 .inter-btn {
     margin-top: 12px;
     width: 7%;
-    font-size: 1.8rem;
+    font-size: 1.0rem;
+    background-color: bisque;
     color: rgb(72, 25, 110);
     border-radius: 17px;
+}
+
+.inter-btn:hover {
+    cursor: pointer;
+    background-color: aquamarine;
+    color: blueviolet;
 }
 
 .inter-links {
@@ -453,7 +484,7 @@ span {
 .inter-links a {
     text-decoration: none;
     display: block;
-    color: darkkhaki;
+    color: rgb(68, 64, 4);
 }
 
 .inter-links a:hover {
@@ -463,6 +494,8 @@ span {
 
 .inter-img {
     border: yellow dashed;
+    width: 16%;
+    height: 36vh;
 }
 
 .inter-img-area {
@@ -487,3 +520,8 @@ footer p{
     font-size: 12px;
 }
 
+/* error handlebars */
+.error {
+    margin-top: 50px;
+    color: brown;
+}

@@ -59,6 +59,12 @@ h2{
   background-color: #555;
 }
 
+
+input[type="radio"] {
+  margin-bottom: 23px;
+  margin-right: 12px;
+}
+
 .showcase{
   max-width: 42%;
   border-radius: 20px;
@@ -95,6 +101,7 @@ input[type=submit]{
   box-sizing: border-box;
   padding: 10px 0;
   margin-top: 30px;
+  cursor: pointer;
   outline: none;
   border: none;
   background: #60adde;
@@ -105,7 +112,7 @@ input[type=submit]{
 }
 
 input[type=submit]:hover{
-  background: blanchedalmond;
+  background: rgb(68, 43, 5);
   opacity: 0.7;
 }
 
