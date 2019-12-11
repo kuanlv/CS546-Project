@@ -13,7 +13,6 @@ router.get('/', middleware.redirectDate, async(req, res) => {
 
 router.post('/', async(req, res) => {
     const hash = await bcrypt.hash(req.body.password, saltRounds);
-    console.log(req.body);
     const newUser = {
         username: req.body.username,
         email: req.body.email, 
@@ -34,13 +33,11 @@ router.post('/', async(req, res) => {
             }
         }
     }
-    console.log(newUser);
     // if (!email || !req.bodyname || !password || !confirmPassword || !sexo || !gender || !motto || !phoneNumber || !age || !location)
     //     return res.redirect('/signup');
     // if (password !== confirmPassword)
     //     return res.redirect('/signup');
     try {
-        console.log("signup post")
         const u = await userData.addUser(newUser);
         req.session.newid = u._id;
         await userData.addProfileId(u._id);

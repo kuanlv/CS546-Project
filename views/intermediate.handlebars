@@ -16,9 +16,9 @@
         <h3>private information</h3>
         <div class="inter-ul">
         <ul>
-            <li>Age: {{age}}</li>
-            <li>Location: {{location}}</li>
-            <li>Contact: {{contact}}</li>
+            <li>Age: {{ age }}</li>
+            <li>Location: {{ location }}</li>
+            <li>Contact: {{ contact }}</li>
         </ul>
         </div>
     </div>
@@ -26,10 +26,8 @@
     <div class="inter-form">
         <form action="/intermediate" method="POST" enctype="multipart/form-data">
             <div class="file-field">
-                <div class="btn-grey">
-                <label class="inter-label" for="file">Upload Picture</label>
-                <input type="file" id="file" name="myImage">
-                </div>
+                <label class="inter-label" for="myImage">Upload Picture</label>
+                <input type="file" id="myImage" name="myImage">
             </div>
             <button type="submit" class="inter-btn">Submit</button>
         </form>

@@ -33,8 +33,6 @@ function checkFileType(file, cb) {
 }
 
 router.get('/', middleware.redirectLogin, async(req, res) => {
-    console.log("get inter");
-    console.log(req.session.newid);
     try {
         const user = await userData.findUserById(req.session.newid);
         const id = ObjectId(user._id);
@@ -63,26 +61,24 @@ router.post('/', async(req, res) => {
         const imageName = req.file.filename;
         try{ 
             const user = await userData.findUserById(req.session.newid);
-            const id = ObjectId(user._id);
-            console.log(imageName);
-            await userData.addImageName(req.session.newid, imageName);
+            const u = await userData.addImageName(req.session.newid, imageName);
             res.render('intermediate', {
-                msg: "file uploaded",
-                filePath: "uploads/" + req.file.filename,
-                id: id,
-                title: user.username,
-                username: user.username,
-                hobby: user.profile.hobby,
-                occupation: user.profile.occupation, 
-                sexOrientation: user.profile.sexOrientation,
-                gender: user.profile.gender,
-                motto: user.profile.Motto,
-                age: user.privateInfo.age,
-                location: user.privateInfo.location,
-                contact: user.privateInfo.contact
+                filePath: "uploads/" + u.profile.profileImage,
+                id: u._id,
+                title: u.username,
+                username: u.username,
+                hobby: u.profile.hobby,
+                occupation: u.profile.occupation, 
+                sexOrientation: u.profile.sexOrientation,
+                gender: u.profile.gender,
+                motto: u.profile.Motto,
+                age: u.profile.privateInfo.age,
+                location: u.profile.privateInfo.location,
+                contact: u.profile.privateInfo.contactInfo
             });
         }catch(e) {
-            res.render('intermediate', {error: e});
+            console.log(e);
+            res.render('intermediate', {title: "error"});
         }  
     })
 })

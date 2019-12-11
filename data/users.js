@@ -24,6 +24,7 @@ let exportedMethods = {
         const postCollection = await Posts();
         const insertionInfo1 = await userCollection.insertOne(user);
         let post = {
+            username: user.username,
             userId: insertionInfo1.insertedId,
             posts: []
         }
@@ -47,7 +48,6 @@ let exportedMethods = {
     async findUserById(id) {
         if (!id)
             throw "No id provided";
-        console.log(`find user id: ${id}`);
         const userCollection = await Users();
         const user = await userCollection.findOne({_id: ObjectId(id)});
         if (!user) 
@@ -62,6 +62,7 @@ let exportedMethods = {
         const updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$set: { "profile.profileImage": imageName }});
         if (!updatedInfo)
             throw "can't update";
+        return await this.findUserById(userId);
     },
 
     async findAllUsers() {
@@ -183,10 +184,7 @@ let exportedMethods = {
             throw "argument missing: check Match";
         if (typeof(likedUser.likes) === "undefined")
             return false;
-        console.log(3);
-        console.log(MyId);
         for (let i = 0; i < likedUser.likes.length; i++) {
-            console.log(likedUser.likes[i]);
             if (likedUser.likes[i] == MyId)
                 return true;
         }

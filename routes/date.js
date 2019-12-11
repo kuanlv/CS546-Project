@@ -18,7 +18,6 @@ router.get('/', middleware.redirectLogin, async(req, res) => {
 
 router.post('/', async(req, res) => {
     try{
-        console.log(req.body);
         const name = req.body.name;
         if (req.body.operation === "like") {
             const LikedUser = await userData.findUserbyUsername(name);
