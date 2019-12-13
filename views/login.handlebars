@@ -4,10 +4,16 @@
         <img src="css/images/loveAvatar.png" class="avatar">
             <h1>LOGIN NOW!</h1>
             <form id="login-form" action="/login" method="POST">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter Username">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter Password">
+                <div class="login-input">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter Username">
+                    <span class="login-error" id="username_error_message"></span>
+                </div>
+                <div class="login-input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password">
+                    <span class="login-error" id="password_error_message"></span>
+                </div>
                 <button type="submit">Submit</button> 
                 <a href="/signup">SIGN UP!</a>
                 <a href="/home">HOME</a>
@@ -15,20 +21,5 @@
         </div>
     </header>
 
-    <script>
-        $(document).ready(function(){
-            $('#login-form').submit(function(e) {
-                e.preventDefault();
-                var username = $('#username').val();
-                var password = $('#password').val();
-                $(".error").remove();
-                
-                if (username.length < 3) {
-                    $('#username').after('<span class="error"> username is too short</span>')
-                } else {
-                    $('#login-form').get(0).submit();
-                }
-            })
-        })
-    </script>
+    <script src="js/login.js" type="text/javascript"></script>
 </body>

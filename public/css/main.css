@@ -569,7 +569,7 @@ footer p{
 
 .loginbox {
     width: 39%;
-    height: 79vh;
+    height: 83vh;
     background: rgba(34, 42, 2, 0.79);
     color: rgb(231, 247, 12);
     top: 50%;
@@ -579,8 +579,6 @@ footer p{
     box-sizing: border-box;
     padding: 70px 30px;
 }
-
-
 
 .avatar {
     width: 100px;
@@ -608,7 +606,7 @@ h1 {
 
 .loginbox input {
     width: 90%;
-    margin-bottom: 45px;
+    margin-bottom: 23px;
 }
 
 .loginbox input[type="text"], input[type="password"] 
@@ -643,7 +641,7 @@ h1 {
     color: #fff;
     font-size: 22px;
     border-radius: 10px;
-    width: 36%;
+    width: 30%;
     margin-bottom: 53px;
 }
 
@@ -663,12 +661,16 @@ h1 {
     margin-bottom: 12px;
 }
 
-label.error{
-    display: inline;
+.login-input {
+    margin-bottom: 12px;
 }
 
-.error {
+.login-error {
     color: red;
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 32px;
 }
 
 .loginbox a:hover{

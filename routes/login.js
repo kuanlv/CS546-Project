@@ -14,7 +14,10 @@ router.get('/', middleware.redirectDate, async(req, res) => {
 router.post('/', async(req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
-        return res.redirect('/login');
+        return res.render('login', {
+            error: "Please enter username and password !",
+            title: "Login"
+        });
     }
     try {
         const user = await userData.findUserbyUsername(username);
