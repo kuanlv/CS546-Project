@@ -5,7 +5,10 @@ const path = require("path");
 const middleware = require('../middleware/middleware');
 
 router.get('/', middleware.redirectDate, async(req, res) => {
-    res.sendFile(path.resolve('html/login.html'));
+    // res.sendFile(path.resolve('html/login.html'));
+    res.render('login', {
+        title: "Login"
+    });
 });
 
 router.post('/', async(req, res) => {

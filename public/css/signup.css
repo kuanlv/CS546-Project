@@ -59,6 +59,14 @@ h2{
   background-color: #555;
 }
 
+.error {
+  color: red;
+  margin-left: 5px;
+}
+
+label.error {
+  display: inline;
+}
 
 input[type="radio"] {
   margin-bottom: 23px;

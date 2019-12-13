@@ -27,19 +27,19 @@
         <form action="/signup" method="POST" class="signup-form" id="form">
             <div>
                 <label for="username" id="username" class="signup-input">USERNAME</label>
-                <input type="text" name="username" placeholder="Create a username" required/>
+                <input type="text" name="username" id="username" placeholder="Create a username" required/>
             </div>
             <div>
                 <label for="email" id="email" class="signup-input">Email Address</label>
-                <input type="email" name="email" placeholder="your email address" required/>
+                <input type="email" name="email" id="email" placeholder="your email address" required/>
             </div>
             <div>
                 <label for="password" id="password" class="signup-input">PASSWORD</label>
-                <input type="password" name="password"  placeholder="create password" required/>
+                <input type="password" name="password" id="password"  placeholder="create password" required/>
             </div>
             <div>
                 <label for="confirmPassword" id="confirmPassword" class="signup-input">Confirm Password</label>
-                <input type="password" name="confirmPassword" placeholder="confirm password" required/>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirm password" required/>
             </div>
             <div>
                 <label id="gender" for="gender" class="signup-input">Gender: </label>
@@ -87,5 +87,31 @@
         <p>Copyright &copy; Kuan's Web Project 2019</p>
     </footer>
     
+    <script>
+        $(document).ready(function() {
+            $('.signup-form').submit(function(e) {
+                e.preventDefault();
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var confirmPassword = $('#confirmPassword').val();
+
+                $(".error").remove();
+
+                if (username.length < 3) {
+                    $('#username').after('<span class="error"> username is too short</span>')
+                }
+
+                if (password.length < 7) {
+                    $('#password').after('<span class="error">password must be at least 6 charaters</span>')
+                }
+
+                if (password !== confirmPassword) {
+                    $('#confirmPassword').after('<span class="error">Password dose not match</span>')
+                }
+            })
+        })
+    </script>
+
+
 </body>
 </html>
