@@ -6,10 +6,7 @@ const postData = require('../data').Posts;
 
 router.get('/:id', async(req, res) => {
     try{
-        console.log('here get in')
-        console.log(req.session.userId);
         const posts = await postData.getUserPosts(req.session.userId);
-        console.log(posts);
         res.render('post', {
             id: req.session.userId,
             posts: posts,
@@ -21,8 +18,6 @@ router.get('/:id', async(req, res) => {
 })
 
 router.post('/:id', async(req, res) => {
-    console.log(req.body);
-
     let date_ob = new Date();
     let date = ("0" + date_ob.getDate()).slice(-2);
     let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
@@ -62,7 +57,7 @@ router.post('/:id', async(req, res) => {
             title: "User Post"
         });
     } catch(e) {
-
+        
     }
 })
 

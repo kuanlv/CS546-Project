@@ -15,7 +15,7 @@ let exportedMethods = {
         const userCollection = await Users();
         const user = await userCollection.findOne({"username": username});
         if (user === 'undefined')
-            throw "user not found somehow";
+            return null;
         return user;
     },
 
@@ -112,10 +112,11 @@ let exportedMethods = {
     async isPasswordCorrect(username, password) {
         const user = await this.findUserbyUsername(username);
         if (user === "undefined")
-            throw "username is not right!";
+            return false;
         const flag = await bcrypt.compare(password, user.hashedpassword);
         if (flag === false)
-            throw "password not right";
+            return false;
+        return true;
     },
 
     async addLikes(MyId, IdOfMyLike) {

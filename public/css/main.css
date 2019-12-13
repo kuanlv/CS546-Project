@@ -215,6 +215,10 @@ input[type=submit]:hover{
     text-align: center;
 }
 
+input[type="radio"]{
+    cursor: pointer;
+}
+
 .date-container {
     margin-top: 23px;
     margin-bottom: 23px;
@@ -385,11 +389,17 @@ input[type="url"] {
 
 h2 {
     text-align: center;
-    color: darkcyan;
+    color: rgb(7, 66, 66);
 }
 
 .private-info p {
     margin: 12px 0 12px 0;
+}
+
+.flag h3{
+    color: darkred;
+    text-transform: uppercase;
+    height: 13vh;
 }
 
 .private-h {
@@ -569,7 +579,7 @@ footer p{
 
 .loginbox {
     width: 39%;
-    height: 83vh;
+    height: 87vh;
     background: rgba(34, 42, 2, 0.79);
     color: rgb(231, 247, 12);
     top: 50%;
@@ -671,6 +681,13 @@ h1 {
     font-weight: bold;
     margin-top: 0px;
     margin-bottom: 32px;
+}
+
+#login-error-message {
+    color: rgb(241, 40, 40);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .loginbox a:hover{

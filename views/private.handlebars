@@ -1,4 +1,3 @@
-
 <h2 class="private-h">{{ user.username }}'s Private information:</h2>
 <div class="private-img">
     <img src="/uploads/{{ user.profile.profileImage }}" alt="matched user profile">
@@ -16,10 +15,16 @@
 </div>
 <section>
     <h2 class="private-h">{{ user.username }}'s posts:</h2>
+    {{#if flag}}
+        <div class="flag">
+            <h3>{{ user.username }} has no posts</h3>
+        </div>
+    {{/if}}
     {{#each posts}}
         <div class="single-post">
         {{#if this.title}}
             <div class="text-post">
+                <p>Post Time: {{ this.postTime }}</p>
                 <p>Post Title: {{ this.title }}</p>
                 <article>Post: {{ this.body }}</article>
             </div>
@@ -27,6 +32,7 @@
 
         {{#if this.videoTitle}}
             <div class="video-post">
+                <p>Post Time: {{ this.postTime }}</p>
                 <p>Video Title: {{ this.videoTitle }}</p>
                 <article class="video-article">Video Description: {{ this.videoDescription }}</article>
                 <div class="video-area">
