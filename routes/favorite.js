@@ -8,16 +8,17 @@ router.get('/:id', async(req, res) => {
     if (favorites.length === 0) {
         flag = 1;
         return res.render('favorites', {
+            id: req.session.userId,
             flag: flag,
             title: "Favorites"
         })
     }
     res.render('favorites', {
+        id: req.session.userId,
         profiles: favorites,
         flag: flag,
         title: "Favorites"
     })
 })
-
 
 module.exports = router;

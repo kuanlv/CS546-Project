@@ -1,5 +1,33 @@
-<h1>logout</h1>
-<form class="logout-form" method="POST" action="/logout">
-    <label for="logout">Are you sure?</label>
-    <button type="submit" name="logout">Yes</button>
-</form>
+{{>top}}
+<div class="logout-page">
+    <div>
+        <h1 class="logout-h1">logout</h1>
+    </div>
+    <div class="logout-area">
+        <p id="logout-label" for={{id}}>Are you sure to logout?</p>
+        <button type="submit" class="logout-button" id={{ id }}>Yes</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.logout-button').click(function() {
+            console.log('clicked')
+            const id = $(this).attr("id");
+            data = { 
+                id: id
+            };
+            $.ajax('http://localhost:3000/logout', {
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function() { 
+                    console.log('success');
+                    window.location.href = 'http://localhost:3000/';
+                },
+                error  : function() { console.log('error');}
+            });
+        });
+    })
+</script>
+{{>footer}}

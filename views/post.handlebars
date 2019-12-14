@@ -5,12 +5,12 @@
 <div class="post-form-area">
     <form class="post-form" action="/post/{{ id }}" method="POST">
         <div class="post-title">
-            <p class="error-message" id="1">Please provide a title</p>
+            <span class="error-message" id="text-title-error"></span>
             <label for="title">title:</label>
             <input type="text" id="title" name="title">
         </div>
         <div class="post-body">
-            <p class="error-message" id="2">Please provide post</p>
+            <span class="error-message" id="text-body-error"></span>
             <label for="body">body:</label>
             <input type="text" id="body" name="body">
         </div>
@@ -18,17 +18,17 @@
         <button class="add-video" type="button">Add a video</button>
         <div class="video-area">
             <div class="video-title">
-                <p class="error-message">Please provide a video title</p>
+                <span class="error-message" id="video-title-error"></span>
                 <label for="videoTitle">title:</label>
                 <input type="text" id="videoTitle" name="videoTitle">
             </div>
             <div class="video-description">
-                <p class="error-message">Please provide a video description</p>
+                <span class="error-message" id="video-body-error"></span>
                 <label for="videoDescription">description:</label>
                 <input type="text" id="videoDescription" name="videoDescription">
             </div>
             <div class="video-link">
-                <p class="error-message">Please provide a video link</p>
+                <span class="error-message" id="video-link-error"></span>
                 <label for="link">link</label>
                 <input type="text" id="link" name="link">
             </div>
@@ -46,6 +46,9 @@
                 <p>Post Title: {{ this.title }}</p>
                 <article>Post: {{ this.body }}</article>
             </div>
+            {{!-- <div>
+                <button type="{{id}}" class="delete-button" id="{{ this.postTime }}">delete</button>
+            </div> --}}
         {{/if}}
 
         {{#if this.videoTitle}}
@@ -59,13 +62,15 @@
                 encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen></iframe>
             </div>
+            {{!-- <div>
+                <button class="delete-button" id="{{ this.postTime }}">delete</button>
+            </div> --}}
         {{/if}}
         </div>
     {{/each}}
 </section>
 
-
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         $('.error-message').hide();
         $('.video-area').hide();
@@ -76,11 +81,22 @@
         $('.add-video').click(function() {
             $('.video-area').show();
         });
-        $('.submit-post').click(function(e) {
-            if (!$('input#title').val()) 
-                $('#1').show();
-            if (!$('input#body').val()) 
-                $('#2').show();
-        });
+        /*
+        $('.delete-button').click(function() {
+            let postTime = $(this).attr("id");
+            const id = $(this).attr("type");
+            data = {
+                postTime: postTime
+            };
+            console.log(id);
+            $.ajax(`http://localhost:3000/post`, {
+                type: 'DELETE',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function() { console.log('success');},
+                error  : function() { console.log('error');}
+            });
+        })
+        */
     });
 </script>

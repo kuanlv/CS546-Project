@@ -39,7 +39,7 @@ router.post('/', async(req, res) => {
             await userData.removeMatch(req.session.userId, dislikedId);
             res.status(200);
         }
-    }catch(e) {
+    } catch(e) {
         res.status(400).send({error: e});
     }
 })

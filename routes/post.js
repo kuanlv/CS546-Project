@@ -3,7 +3,6 @@ const router = express.Router();
 const userData = require('../data').Users;
 const postData = require('../data').Posts;
 
-
 router.get('/:id', async(req, res) => {
     try{
         const posts = await postData.getUserPosts(req.session.userId);
@@ -18,9 +17,20 @@ router.get('/:id', async(req, res) => {
             title: "post area"
         });
     }catch(e) {
-
+        res.sendStatus(500);
     }
 })
+
+// router.delete('/:id', async(req, res) => {
+//     console.log(req.body);
+//     try {
+//         return await postData.deletePost(req.params.id, req.body.postTime);
+//     } catch (e) {
+//         res.sendStatus(500).json({
+//             error: e
+//         })
+//     }
+// })
 
 router.post('/:id', async(req, res) => {
     let date_ob = new Date();
@@ -68,7 +78,7 @@ router.post('/:id', async(req, res) => {
             title: "User Post"
         });
     } catch(e) {
-        
+        res.sendStatus(500);
     }
 })
 
