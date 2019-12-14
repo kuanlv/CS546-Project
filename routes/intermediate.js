@@ -32,6 +32,15 @@ function checkFileType(file, cb) {
     }
 }
 
+function isEmpty(obj) {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true;
+}
+
 router.get('/', middleware.redirectLogin, async(req, res) => {
     try {
         const user = await userData.findUserById(req.session.newid);
@@ -60,7 +69,6 @@ router.post('/', async(req, res) => {
             return res.render('intermediate', {msg: err});
         const imageName = req.file.filename;
         try{ 
-            const user = await userData.findUserById(req.session.newid);
             const u = await userData.addImageName(req.session.newid, imageName);
             res.render('intermediate', {
                 filePath: "uploads/" + u.profile.profileImage,

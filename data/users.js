@@ -45,8 +45,8 @@ let exportedMethods = {
     },
 
     async findUserById(id) {
-        if (!id)
-            throw "No id provided";
+        // if (!id)
+        //     throw "No id provided";
         const userCollection = await Users();
         const user = await userCollection.findOne({_id: ObjectId(id)});
         if (!user) 

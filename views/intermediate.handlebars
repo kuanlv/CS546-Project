@@ -32,7 +32,7 @@
             <button type="submit" class="inter-btn">Submit</button>
         </form>
     </div>
-    
+
     {{#if filePath}}
         <div class="inter-img-area">
             <img class="inter-img" src= {{ filePath }} alt="user-profile">
@@ -40,7 +40,7 @@
         <div class="inter-links">
             <ul>
                 <li><a href="/login">Get Started!</a></li>
-                <li><a href="/profile/{{ id }}">Change Profile</a></li>
+                {{!-- <li><a href="/profile/{{ id }}">Change Profile</a></li> --}}
             </ul>
         </div>
     {{/if}}

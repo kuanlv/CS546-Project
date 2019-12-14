@@ -21,6 +21,7 @@ router.post('/:id', async(req, res) => {
         await userData.replaceUser(req.params.id, updatedUser);
 
         res.render('profile', {
+            id: req.session.userId,
             user: user,
             title: user.username,
             imageName: user.profile.profileImage
