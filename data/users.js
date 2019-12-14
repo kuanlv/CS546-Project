@@ -139,6 +139,23 @@ let exportedMethods = {
             throw "no dislike id found!";
     },
 
+    async getFavorite(userId) {
+        const user = await this.findUserById(userId);
+        const likes = user.likes;
+        let res = [];
+        let output = [];
+        for (let i = likes.length - 1; i >= 0; i--) {
+            if (res.includes(likes[i]))
+                continue;
+            res.push(likes[i]);
+        }
+        for (let i = 0; i < res.length; i++) {
+            const likedUser = await this.findUserById(res[i]);
+            output.push(likedUser.profile);
+        }
+        return output;
+    },
+
     async updateImage(id, imageName) {
         if (!imageName)
             throw "No image name provided";

@@ -21,7 +21,7 @@ app.use(xss());
 app.use(express.static('public'));
 // body parser middleware
 app.use(express.json( { limit: '10kb' } ));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 // template engine
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
