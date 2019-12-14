@@ -2,13 +2,25 @@ const express = require('express');
 const configRoutes = require('./routes');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize'); 
+const xss = require('xss-clean');
 const path = require('path');
+const rateLimit = require("express-rate-limit");
 
 const app = express();
+// helmet middleware
+app.use(helmet({
+    frameguard: false
+}));
+// NoSQL injection protection
+app.use(mongoSanitize());
+// xss
+app.use(xss());
 // static middleware
 app.use(express.static('public'));
 // body parser middleware
-app.use(express.json());
+app.use(express.json( { limit: '10kb' } ));
 app.use(express.urlencoded({extended: true}));
 // template engine
 app.engine('handlebars', exphbs({
@@ -40,6 +52,16 @@ app.use(session({
         secure: IN_PROD
     }
 }))
+
+// set request limit 
+const limiter = rateLimit({
+    max: 100,// max requests
+    windowMs: 60 * 60 * 1000, // 1 Hour
+    message: 'Too many requests' // message to send
+});
+app.use('/date', limiter);
+app.use('/post', limiter);
+app.use('/login', limiter);
 
 
 configRoutes(app);
