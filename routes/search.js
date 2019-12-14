@@ -3,7 +3,6 @@ const router = express.Router();
 const userData = require('../data').Users;
 
 router.post('/', async(req, res) => {
-    console.log(req.body.hobby);
     const searchContent = req.body;
     if (searchContent.hobby === '' && searchContent.occupation === '' && typeof(searchContent.sexo) === "undefined") {
         const profiles = await userData.getAllProfile(req.session.userId);

@@ -42,7 +42,6 @@ let exportedMethods = {
         );
         if (!updatedInfo)
             throw "can't add profile id";
-        console.log("success add profile id");
     },
 
     async findUserById(id) {
@@ -98,10 +97,6 @@ let exportedMethods = {
     },
 
     async isValidUsername(username) {
-        if (typeof username !== "stirng")
-            throw "username must be a string";
-        if (username.length < 3) 
-            throw "username length must be greater than 2";
         const userlist = await this.findAllUsers();
         for (let i = 0; i < userlist.length; i++) 
             if (username === userlist[i].username)
@@ -132,19 +127,16 @@ let exportedMethods = {
             { _id: ObjectId(MyId) }, { $push: { likes: IdOfMyLike } });
         if (updatedInfo === 'undefined')
             throw "can't update likes";
-        console.log('success add like');
     },
 
     async removeLikes(MyId, IdOfMyDisLike) {
         // if (!MyId || !IdOfMyDisLike)
         //     throw "parameter missing: remove like";
-        console.log("remove");
         const userCollection = await Users();
         const updatedInfo = await userCollection.updateOne(
             {_id: ObjectId(MyId)}, { $pull: { likes: IdOfMyDisLike } })
         if (!updatedInfo)
             throw "no dislike id found!";
-        console.log('success removed');
     },
 
     async updateImage(id, imageName) {
@@ -165,7 +157,6 @@ let exportedMethods = {
             {_id: ObjectId(id)}, updatedUser);
         if (!updatedInfo)
             throw "can't update user";
-        console.log('success');
     },
 
     async isMatch(MyId, likedUser) {
@@ -209,7 +200,6 @@ let exportedMethods = {
 
         if (!updatedInfo1 || !updatedInfo2)
             throw "can't match";
-        console.log('success match');
     },
 
     async removeMatch(MyId, dislikedId) {
@@ -231,7 +221,6 @@ let exportedMethods = {
 
         if (!updatedInfo1 || !updatedInfo2)
             throw "can't dismatch";
-        console.log('success dismatch');
     },
 
     async search(searchContent, userId) {
@@ -299,7 +288,6 @@ let exportedMethods = {
 
         // type 5: 0 0 m
         if (searchContent.hobby === "" && searchContent.occupation === "" && searchContent.sexo === 'male') {
-            console.log("coming in");
             for (let i = 0; i < profiles.length; i++) {
                 if (profiles[i].sexOrientation === 'female')
                     continue;

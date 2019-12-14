@@ -13,7 +13,7 @@ $(function() {
     let error_age = false;
     let error_contactInfo = false;
 
-    $("#username").focusout(function(){
+    $("#username").focusout(function(){    
         check_username();
     });
     $("#email").focusout(function() {

@@ -311,26 +311,51 @@ li p {
 
 .post-body {
     margin-bottom: 30px;
-    width: 70%;
+    width: 40%;
     margin: auto;
+}
+
+.text-post h2{
+    margin-bottom: 23px;
+}
+
+.text-post p {
+    margin-bottom: 12px;
+}
+
+.video-post p {
+    margin-bottom: 12px;
+}
+
+.video-post article {
+    margin-bottom: 12px;
 }
 
 .post-title {
-    width: 50%;
+    width: 30%;
     margin: auto;
     margin-bottom: 20px;
+}
+
+.video-post h2 {
+    margin-bottom: 23px;
 }
 
 .video-title {
-    width: 50%;
+    width: 30%;
     margin: auto;
     margin-bottom: 20px;
 }
 
-.video-decription {
-    width: 60%;
+.video-description {
+    width: 40%;
     margin: auto;
     margin-bottom: 30px;
+}
+
+.video-link {
+    margin: auto;
+    width: 30%;
 }
 
 .add-video {
@@ -694,3 +719,147 @@ h1 {
     color: #ffc107;
 }
 
+/* signup handlebars */
+/*  */
+/*  */
+/*  */
+/* * {
+    box-sizing: border-box;
+  } */
+  
+  .signup-body header {
+    margin-bottom: 40px;
+  }
+  
+  .signup-body {
+    margin: 0;
+    padding: 0;
+    background: url('/css/images/love3.jpg') no-repeat;
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .showcase h2{
+    color: brown;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .current { 
+    color: red;
+    font-weight: bold;
+  }
+  
+  .signup-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #35424a;
+    color: white;
+  }
+  
+  .signup-brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .signup-navbar-links ul {
+    margin: 0 ;
+    padding: 0;
+    display: flex;
+  }
+  
+  .signup-navbar-links li {
+    list-style: none;
+  }
+  
+  .signup-navbar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+  }
+  
+  .signup-navbar-links li:hover {
+    background-color: #555;
+  }
+
+  .signup-form p {
+      color: #770b0b;
+      font-size: 1.0rem;
+  }
+  
+  .error {
+    color: red;
+    margin-left: 5px;
+  }
+  
+  label.error {
+    display: inline;
+  }
+  
+  input[type="radio"] {
+    margin-bottom: 23px;
+    cursor: pointer;
+    margin-right: 12px;
+  }
+  
+  .showcase{
+    max-width: 42%;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    margin: auto;
+    margin-bottom: 44px;
+    color: aquamarine;
+    text-transform: uppercase;
+  }
+  
+  .error_form{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .signup-form h3 {
+    text-align: center;
+    color: brown;
+  }
+  
+  .signup-form input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background:rgba(0, 0, 0, 0.1);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+  }
+  
+  .signup-form input[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 30px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: #60adde;
+    opacity: 0.7;
+    border-radius: 20px;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .signup-form input[type=submit]:hover{
+    background: rgb(68, 43, 5);
+    opacity: 0.7;
+  }
+
+  

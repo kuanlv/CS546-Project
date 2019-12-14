@@ -7,9 +7,14 @@ const postData = require('../data').Posts;
 router.get('/:id', async(req, res) => {
     try{
         const posts = await postData.getUserPosts(req.session.userId);
+        let output = [];
+        if (posts.length > 0) {
+            for (let i = posts.length - 1; i >= 0; i--) 
+                output.push(posts[i]);
+        }
         res.render('post', {
             id: req.session.userId,
-            posts: posts,
+            posts: output,
             title: "post area"
         });
     }catch(e) {
@@ -51,9 +56,15 @@ router.post('/:id', async(req, res) => {
             await postData.addPost(newPost, req.session.userId);
         }
         const posts = await postData.getUserPosts(req.session.userId);
+        let output = [];
+        if (posts.length > 0) {
+            for (let i = posts.length - 1; i >= 0; i--) {
+                output.push(posts[i]);
+            }
+        }
         res.render('post', {
             id: req.session.userId,
-            posts: posts,
+            posts: output,
             title: "User Post"
         });
     } catch(e) {

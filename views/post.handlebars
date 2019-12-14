@@ -50,6 +50,7 @@
 
         {{#if this.videoTitle}}
             <div class="video-post">
+                <h2>Post time: {{ this.postTime }}</h2>
                 <p>Video Title: {{ this.videoTitle }}</p>
                 <article>Video Description: {{ this.videoDescription }}</article>
                 <iframe width="560" height="315" 
@@ -81,7 +82,5 @@
             if (!$('input#body').val()) 
                 $('#2').show();
         });
-
-
     });
 </script>

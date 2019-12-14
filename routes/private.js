@@ -6,7 +6,6 @@ const postData = require('../data').Posts;
 router.get('/:id', async(req, res) => {
     const likedUser = await userData.findUserById(req.params.id);
     const isMatch = await userData.isMatch(req.session.userId, likedUser);
-    console.log(isMatch);
     if (isMatch) {
         let flag = 0;
         const posts = await postData.getUserPosts(likedUser._id);

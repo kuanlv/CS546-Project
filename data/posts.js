@@ -30,14 +30,11 @@ let exportedMethods = {
     async addPost(post, userId) {
         if (typeof post === 'undefined')
             throw "undefined post";
-        console.log('here l')
         const postCollections = await Posts();
-        console.log(1);
         const updatedInfo = await postCollections.updateOne(
             { userId: ObjectId(userId) },
             { $push: { posts: post } }
         );
-        console.log(2);
         if (!updatedInfo)
             throw "can't add post";
     },

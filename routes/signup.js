@@ -7,9 +7,10 @@ const middleware = require('../middleware/middleware');
 const saltRounds = 10;
 
 router.get('/', middleware.redirectDate, async(req, res) => {
-    res.sendFile(path.resolve('./html/signup.html'));
+    res.render('signup', {
+        title: "signup"
+    });
 });
-
 
 router.post('/', async(req, res) => {
     const hash = await bcrypt.hash(req.body.password, saltRounds);
@@ -38,6 +39,22 @@ router.post('/', async(req, res) => {
     // if (password !== confirmPassword)
     //     return res.redirect('/signup');
     try {
+        const flag = await userData.isValidUsername(req.body.username);
+        if (!flag) {
+            return res.render('signup', {
+                title: "rename username",
+                error: "Username already in use!",
+                password: req.body.password,
+                email: req.body.email,
+                confirmPassword: req.body.confirmPassword,
+                hobby: req.body.hobby,
+                occupation: req.body.occupation,
+                motto: req.body.motto,
+                contactInfo: req.body.contactInfo,
+                age: req.body.age,
+                location: req.body.location
+            })
+        }
         const u = await userData.addUser(newUser);
         req.session.newid = u._id;
         await userData.addProfileId(u._id);

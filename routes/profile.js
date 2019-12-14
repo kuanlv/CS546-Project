@@ -33,7 +33,6 @@ function checkFileType(file, cb) {
 
 router.get('/:id', async(req, res) => {
     try {
-        console.log('get id')
         const user = await userData.findUserById(req.params.id);
         res.render('profile', { 
             id: user._id,
@@ -51,7 +50,6 @@ router.post('/:id', async(req, res) => {
         if(err) 
             return res.render('profile', {msg: err});
         const imageName = req.file.filename;
-        console.log(imageName);
         try{ 
             const user = await userData.findUserById(req.params.id);
             await userData.updateImage(req.params.id, imageName);

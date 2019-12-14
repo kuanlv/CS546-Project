@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sigu Up</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <link rel="stylesheet" href="css/signup.css" type="text/css"/>
-</head>
-<body>
+<body class="signup-body">
     <header>
-        <nav class="navbar">
-            <div class="brand-title">Kuan's Dating App</div>
-            <div class="navbar-links">
+        <nav class="signup-navbar">
+            <div class="signup-brand-title">Kuan's Dating App</div>
+            <div class="signup-navbar-links">
                 <ul>
                     <li><a href="/home">Home</a></li>
                     <li><a href="/login">Login</a></li>
@@ -26,24 +16,25 @@
     <div class="showcase">
         <h2>sign up here</h2>
         <form action="/signup" method="POST" class="signup-form" id="signup-form">
+            <p class="error-form">{{ error }}</p>
             <div class="username">
                 <label for="username" class="signup-input">USERNAME</label>
-                <input type="text" name="username" id="username" placeholder="Create a username" required/>
+                <input type="text" name="username" id="username" value="{{ username }}" placeholder="enter username" required/>
                 <span class="error_form" id="username_error_message">error</span>   
             </div>
             <div>
                 <label for="email" class="signup-input">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="your email address" required/>
+                <input type="email" name="email" id="email" value="{{ email }}" placeholder="your email address" required/>
                 <span class="error_form" id="email_error_message"></span>
             </div>
             <div>
                 <label for="password" class="signup-input">PASSWORD</label>
-                <input type="password" name="password" id="password"  placeholder="create password" required/>
+                <input type="password" name="password" id="password" value="{{ password }}" placeholder="create password" required/>
                 <span class="error_form" id="password_error_message"></span>
             </div>
             <div>
                 <label for="confirmPassword" class="signup-input">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirm password" required/>
+                <input type="password" name="confirmPassword" value="{{ confirmPassword }}" id="confirmPassword" placeholder="confirm password" required/>
                 <span class="error_form" id="confirmPassword_error_message"></span>
             </div>
             <div>
@@ -53,11 +44,11 @@
             </div>
             <div>
                 <label for="hobby" class="signup-input">Hobby</label>
-                <input type="text" id="hobby" name="hobby"  placeholder="hobbies" required/>
+                <input type="text" id="hobby" name="hobby" value="{{ hobby }}"  placeholder="hobbies" required/>
             </div>
             <div>
                 <label for="occupation" class="signup-input">Occupation</label>
-                <input type="text" id="occupation" name="occupation"  placeholder="occupation" required/>
+                <input type="text" id="occupation" name="occupation" value="{{ occupation }}" placeholder="occupation" required/>
             </div>
             <div>
                 <label for="sexo" class="signup-input">sex orientation: </label>
@@ -66,22 +57,22 @@
             </div> 
             <div>
                 <label for="motto" class="signup-input">Motto</label>
-                <input type="text" name="motto" id="motto" placeholder="write something you like" required/>
+                <input type="text" name="motto" id="motto" value="{{ motto }}" placeholder="write something you like" required/>
             </div>
                 <h3>Private information</h3>
             <div>
                 <label for="contactInfo" class="signup-input">Phone Number</label>
-                <input type="tel" id="contactInfo" name="contactInfo" placeholder="phone number" required/>
+                <input type="tel" id="contactInfo" name="contactInfo" value="{{ contactInfo }}" placeholder="phone number" required/>
                 <span class="error_form" id="contactInfo_error_message"></span>
             </div>
             <div>
                 <label for="age" class="signup-input">age</label>
-                <input type="number" name="age" id="age" placeholder="enter your age" required/>
+                <input type="number" name="age" id="age" value="{{ age }}" placeholder="enter your age" required/>
                 <span class="error_form" id="age_error_message"></span>
             </div>
             <div>
                 <label for="location" class="signup-input">Location</label>
-                <input type="text" name="location" id="location" placeholder="city you live" required/>
+                <input type="text" name="location" id="location" value="{{ location }}" placeholder="city you live" required/>
             </div>
             <div>
                 <input type="submit" value="Submit">
@@ -95,7 +86,4 @@
     </footer>
 
     <script src="js/signup.js" type="text/javascript"></script>
-
-
 </body>
-</html>

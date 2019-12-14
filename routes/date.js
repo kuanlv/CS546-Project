@@ -25,7 +25,6 @@ router.post('/', async(req, res) => {
             await userData.addLikes(req.session.userId, likedId);
             const profiles = await userData.getAllProfile(req.session.userId);
             const check = await userData.CheckMatch(req.session.userId, LikedUser);
-            console.log(check);
             if (check)
                 await userData.addMatch(req.session.userId, likedId);
             res.render('date', { 
@@ -38,7 +37,6 @@ router.post('/', async(req, res) => {
             const dislikedId = disLikedUser._id;
             await userData.removeLikes(req.session.userId, dislikedId);
             await userData.removeMatch(req.session.userId, dislikedId);
-            console.log("remove likes");
             res.status(200);
         }
     }catch(e) {
