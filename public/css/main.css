@@ -58,10 +58,18 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
     background-color: rgb(38, 138, 138);
-    color: darkred;
+    color: #300000;
     font-weight: bold;
     border-radius: 7px;
     margin-top: 12px;
+}
+
+#pro-pri p{
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 12px;
+    margin-bottom: 23px;
+    color: #ecadad;
 }
 
 .profile-label:hover {
@@ -181,7 +189,7 @@ input[type=submit]:hover{
     height: 7vh;
     font-size: 1.1rem;
     background-color: bisque;
-    color: cadetblue;
+    color: #007577;
     border-radius: 7px;
 }
 
@@ -247,7 +255,7 @@ body {
     background-color: brown;
     width: 12%;
     border-radius: 15px;
-    height: 4vh;
+    height: 6vh;
     color: chartreuse;
     font-size: 1.2rem;
 }
@@ -256,7 +264,7 @@ body {
     text-decoration: none;
     font-size: 1.2rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: azure;
+    color: #043f3f;
 }
 
 .date-container a:hover {
@@ -274,7 +282,7 @@ body {
 }
 
 li p {
-    color: rgb(6, 58, 126);
+    color: #00387c;
     font-size: 1.4rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: normal;
@@ -305,7 +313,7 @@ li p {
     margin-top: 30px;
     font-size: 2.0rem;
     text-transform: uppercase;
-    color: darkolivegreen;
+    color: #435c00;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -315,7 +323,8 @@ li p {
     margin: auto;
 }
 
-.text-post h2{
+#post-time {
+    font-size: 1.7rem;
     margin-bottom: 23px;
 }
 
@@ -412,7 +421,7 @@ input[type="url"] {
     margin: 23px 0 0 23px;
 }
 
-h2 {
+.private-h {
     text-align: center;
     color: rgb(7, 66, 66);
 }
@@ -455,9 +464,9 @@ h2 {
 /*  */
 /*  */
 
-.inter-h1 {
+.inter-h1 h1{
     margin-top: 40px;
-    color: aquamarine;
+    color: #300000;
     text-align: center;
 }
 
@@ -473,13 +482,21 @@ input[type=file] {
     font-size: 1.2rem;
 }
 
+.inter-ul li{
+    color: #0c4141;
+}
+
+.inter-private h2{
+    color: #004242;
+}
+
 .inter-label {
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     background-color: rgb(38, 138, 138);
-    color: darkred;
+    color: #300000;
     font-weight: bold;
     border-radius: 7px;
     margin-top: 12px;
@@ -540,7 +557,7 @@ span {
 .inter-links a {
     text-decoration: none;
     display: block;
-    color: rgb(68, 64, 4);
+    color: #403c00;
 }
 
 .inter-links a:hover {
@@ -583,9 +600,9 @@ footer p{
 /*  */
 /*  */
 /*  */
-.error {
+.error-error {
     margin-top: 50px;
-    color: brown;
+    color: #ad0000;
 }
 
 /* login handlebars */
@@ -672,8 +689,8 @@ h1 {
     border: none;
     outline: none;
     height: 50px;
-    background: #fb2525;
-    color: #fff;
+    background: #ee0000;
+    color: #ffffff;
     font-size: 22px;
     border-radius: 10px;
     width: 30%;
@@ -684,7 +701,7 @@ h1 {
 {
     cursor: pointer;
     background: #ffc107;
-    color: #000;
+    color: #ffffff;
 
 }
 
@@ -692,7 +709,7 @@ h1 {
     text-decoration: underline;
     font-size: 22px;
     line-height: 20px;
-    color: coral;
+    color: #ffb6a5;
     margin-bottom: 12px;
 }
 
@@ -817,7 +834,7 @@ h1 {
   }
   
   .error_form{
-    color: red;
+    color: #ff6a6a;
     font-size: 0.8rem;
     font-weight: bold;
     margin-bottom: 40px;
@@ -825,7 +842,7 @@ h1 {
   
   .signup-form h3 {
     text-align: center;
-    color: brown;
+    color: #b86363;
   }
   
   .signup-form input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number]{

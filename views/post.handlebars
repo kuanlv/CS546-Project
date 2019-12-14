@@ -20,12 +20,12 @@
             <div class="video-title">
                 <p class="error-message">Please provide a video title</p>
                 <label for="videoTitle">title:</label>
-                <input type="text" id="title" name="videoTitle">
+                <input type="text" id="videoTitle" name="videoTitle">
             </div>
             <div class="video-description">
                 <p class="error-message">Please provide a video description</p>
                 <label for="videoDescription">description:</label>
-                <input type="text" id="description" name="videoDescription">
+                <input type="text" id="videoDescription" name="videoDescription">
             </div>
             <div class="video-link">
                 <p class="error-message">Please provide a video link</p>
@@ -42,7 +42,7 @@
         <div class="single-post">
         {{#if this.title}}
             <div class="text-post">
-                <h2>Post Time: {{ this.postTime }}</h2>
+                <p id="post-time">Post Time: {{ this.postTime }}</p>
                 <p>Post Title: {{ this.title }}</p>
                 <article>Post: {{ this.body }}</article>
             </div>
@@ -50,7 +50,7 @@
 
         {{#if this.videoTitle}}
             <div class="video-post">
-                <h2>Post time: {{ this.postTime }}</h2>
+                <p id="post-time">Post time: {{ this.postTime }}</p>
                 <p>Video Title: {{ this.videoTitle }}</p>
                 <article>Video Description: {{ this.videoDescription }}</article>
                 <iframe width="560" height="315" 

@@ -24,29 +24,31 @@
     </form>
     <form action="/change-profile/{{ user._id }}" method="POST" class="profile-form" id="form">
         <div>
-            <label for="hobby" id="hobby" class="signup-input">Hobby</label>
-            <input type="text" name="hobby"  placeholder="hobbies" value="{{user.profile.hobby}}"/>
+            <label for="hobby" class="signup-input">Hobby</label>
+            <input type="text" id="hobby" name="hobby"  placeholder="hobbies" value="{{user.profile.hobby}}"/>
         </div>
         <div>
-            <label for="occupation" id="occupation" class="signup-input">Occupation</label>
-            <input type="text" name="occupation"  placeholder="occupation" value="{{user.profile.occupation}}"/>
+            <label for="occupation" class="signup-input">Occupation</label>
+            <input type="text" id="occupation" name="occupation"  placeholder="occupation" value="{{user.profile.occupation}}"/>
         </div>
         <div>
-            <label for="motto" id="motto" class="signup-input">Motto</label>
-            <input type="text" name="motto"  placeholder="write something you like" value="{{user.profile.Motto}}"/>
+            <label for="motto" class="signup-input">Motto</label>
+            <input type="text" id="motto" name="motto" placeholder="write something you like" value="{{user.profile.Motto}}"/>
         </div>
-            <h3>Private information</h3>
-        <div>
-            <label for="contactInfo" id="contactInfo" class="signup-input">Phone Number</label>
-            <input type="tel" name="contactInfo" placeholder="phone number" value="{{user.profile.privateInfo.contactInfo}}"/>
+        <div id="pro-pri">
+            <p>Private information</p>
         </div>
         <div>
-            <label for="age" id="age" class="signup-input">age</label>
-            <input type="number" name="age"  placeholder="enter your age" value="{{user.profile.privateInfo.age}}"/>
+            <label for="contactInfo" class="signup-input">Phone Number</label>
+            <input type="tel" id="contactInfo" name="contactInfo" placeholder="phone number" value="{{user.profile.privateInfo.contactInfo}}"/>
         </div>
         <div>
-            <label for="location" id="location" class="signup-input">Location</label>
-            <input type="text" name="location"  placeholder="city you live" value="{{user.profile.privateInfo.location}}"/>
+            <label for="age" class="signup-input">age</label>
+            <input type="number" id="age" name="age"  placeholder="enter your age" value="{{user.profile.privateInfo.age}}"/>
+        </div>
+        <div>
+            <label for="location" class="signup-input">Location</label>
+            <input type="text" id="location" name="location"  placeholder="city you live" value="{{user.profile.privateInfo.location}}"/>
         </div>
         <div>
             <input type="submit" value="Save change">

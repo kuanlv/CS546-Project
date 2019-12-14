@@ -14,7 +14,7 @@
     </header>
     
     <div class="showcase">
-        <h2>sign up here</h2>
+        <h1>sign up here</h1>
         <form action="/signup" method="POST" class="signup-form" id="signup-form">
             <p class="error-form">{{ error }}</p>
             <div class="username">
@@ -38,9 +38,10 @@
                 <span class="error_form" id="confirmPassword_error_message"></span>
             </div>
             <div>
-                <label id="gender" for="gender" class="signup-input">Gender: </label>
-                <input type="radio" name="gender" value="male"/>Male
-                <input type="radio" name="gender" value="female"/>Female 
+                <label id="gender" for="male" class="signup-input">Gender: </label>
+                <input type="radio" name="gender" id="male" value="male"/>Male
+                <label for="female"></label>
+                <input type="radio" id="female" name="gender" value="female"/>Female 
             </div>
             <div>
                 <label for="hobby" class="signup-input">Hobby</label>
@@ -51,9 +52,10 @@
                 <input type="text" id="occupation" name="occupation" value="{{ occupation }}" placeholder="occupation" required/>
             </div>
             <div>
-                <label for="sexo" class="signup-input">sex orientation: </label>
-                <input type="radio" name="sexo"  value="male" id="sexo" required/>Male
-                <input type="radio" name="sexo" value="female" required/>Female
+                <label for="sexo-male" class="signup-input">sex orientation: </label>
+                <input type="radio" name="sexo"  value="male" id="sexo-male" required/>Male
+                <label for="sexo-female"></label>
+                <input id="sexo-female" type="radio" name="sexo" value="female" required/>Female
             </div> 
             <div>
                 <label for="motto" class="signup-input">Motto</label>

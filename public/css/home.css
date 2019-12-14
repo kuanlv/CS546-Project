@@ -68,12 +68,12 @@ header nav{
 }
 
 header .highlight, header .current a{
-    color: red;
+    color: #ff8989;
     font-weight: bold;
 }
 
 header a:hover{
-    color: purple;
+    color: rgb(236, 150, 236);
     font-weight: bold;
 }
 
@@ -88,7 +88,7 @@ header a:hover{
     background-repeat: no-repeat;
     background-position: center center;
     text-align: center;
-    color: pink;
+    color: #d5798c;
 }
 
 footer{
