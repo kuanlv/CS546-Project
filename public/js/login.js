@@ -19,7 +19,7 @@ $(function() {
            $("#username").css("border-bottom","2px solid #34F458");
            error_username = false;
         } else {
-           $("#username_error_message").html("Should contain only Characters and at least three characters long");
+           $("#username_error_message").html("Should contain only characters and at least three characters long");
            $("#username_error_message").show();
            $("#username").css("border-bottom","2px solid #F90A0A");
            error_username = true;
@@ -29,7 +29,7 @@ $(function() {
     function check_password() {
         let password_length = $("#password").val().length;
         if (password_length < 6) {
-           $("#password_error_message").html("password should be at least 6 Characters");
+           $("#password_error_message").html("password should be at least 6 characters");
            $("#password_error_message").show();
            $("#password").css("border-bottom","2px solid #F90A0A");
            error_password = true;

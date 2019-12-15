@@ -26,7 +26,8 @@ async function main() {
                 contactInfo: "324-231-4522",
                 age: "23",
                 location: "Hoboken"
-            }
+            },
+            profileImage: "myImage-1576375950095.jpg"
         }
     };
 
@@ -60,7 +61,8 @@ async function main() {
                 contactInfo: "324-231-4222",
                 age: "27",
                 location: "Beijing"
-            }
+            },
+            profileImage: "myImage-1575748859300.jpeg"
         }
     };
     
@@ -92,7 +94,8 @@ async function main() {
                 contactInfo: "311-321-2343",
                 age: "34",
                 location: "Henan"
-            }
+            },
+            profileImage: "myImage-1575499578853.jpg"
         }
     };
     
@@ -125,7 +128,8 @@ async function main() {
                 contactInfo: "203-332-1039",
                 age: "37",
                 location: "Beijing"
-            }
+            },
+            profileImage: "myImage-1576038773992.jpg"
         }
     };
     
@@ -158,7 +162,8 @@ async function main() {
                 contactInfo: "203-222-1123",
                 age: "21",
                 location: "Paris"
-            }
+            },
+            profileImage: "myImage-1576350294943.jpeg"
         }
     };
 

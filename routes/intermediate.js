@@ -32,14 +32,14 @@ function checkFileType(file, cb) {
     }
 }
 
-function isEmpty(obj) {
-    for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
+// function isEmpty(obj) {
+//     for(var prop in obj) {
+//         if(obj.hasOwnProperty(prop))
+//             return false;
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
 router.get('/', middleware.redirectLogin, async(req, res) => {
     try {
